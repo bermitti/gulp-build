@@ -14,7 +14,7 @@ const gP = require('gulp-load-plugins')(); //автоматическоe под�
 
 const pixelsToRem = require('postcss-pixels-to-rem');
 
-// const uglify = require('gulp-uglify'); //минификации js-файлов
+const uglify = require('gulp-uglify'); //минификации js-файлов
 // const jquery      = './node_modules/jquery/dist/jquery.js';
 // const normalize   = './node_modules/normalize.scss/normalize.scss';
 
@@ -59,7 +59,7 @@ const pixelsToRem = require('postcss-pixels-to-rem');
             dest: 'build/assets/images/'
         },
         scripts: {
-            src: 'src/scripts/**/*.js',
+            src: 'src/scripts/**/*.js', //все файла в папке и подпапках src/scripts/ с расширением .js
             dest: 'build/assets/scripts/'
         },
         svg: {
@@ -177,6 +177,24 @@ const pixelsToRem = require('postcss-pixels-to-rem');
         }))
         .pipe(gulp.dest(paths.fonts.dest))
     };
+    
+//scripts
+    function scripts() {
+        return gulp.src(paths.scripts.src)
+            .pipe(gP.plumber({
+                errorHandler: gP.notify.onError(function(error) {
+                    return {
+                        title: 'Scripts',
+                        message: error.message
+                    };
+                })
+            }))
+            .pipe(gP.sourcemaps.init())           //sourcemaps инициализация
+            .pipe(uglify())                       //минификация js-файлов
+            .pipe(gP.concat('main.min.js'))       // 'склеивание'
+            .pipe(gP.sourcemaps.write())          //sourcemaps запись
+            .pipe(gulp.dest(paths.scripts.dest))  // куда положить
+    };    
 
 // очистка, удаляет все скомпилированные файлы, папку build
     function clean() {
@@ -188,9 +206,9 @@ const pixelsToRem = require('postcss-pixels-to-rem');
         gulp.watch(paths.styles.src, styles);
         gulp.watch(paths.templates.src, templates);
         gulp.watch(paths.images.src, images);
-        //    gulp.watch(paths.scripts.src, scripts);
+        gulp.watch(paths.scripts.src, scripts);
         gulp.watch(paths.svg.src, svgSpriteBuild);
-        //    gulp.watch(paths.fonts.src, fonts);
+        gulp.watch(paths.fonts.src, fonts);
     };
 
 // локальный сервер + livereload (встроенный)
@@ -202,19 +220,20 @@ const pixelsToRem = require('postcss-pixels-to-rem');
         browserSync.watch(paths.root + '/**/*.*', browserSync.reload);
     }
 
-//для вызова функций из консоли, для отладки
-    exports.templates = templates;
-    exports.styles = styles;
+//для отладки, вызов функций из консоли
     exports.clean = clean;
-    exports.images = images;
+    exports.templates = templates;
     exports.svgSpriteBuild = svgSpriteBuild;
     exports.svgSprite = svgSprite;
+    exports.images = images;
+    exports.fonts = fonts;
+    exports.styles = styles;
+    exports.scripts = scripts;
 
 // default
     gulp.task('default', gulp.series(
         clean,
         svgSpriteBuild,
-        gulp.parallel(templates, styles, svgSprite, fonts, images),
-    //    gulp.parallel(, scripts),
+        gulp.parallel(templates, styles, svgSprite, fonts, images, scripts),
         gulp.parallel(watch, server)
     ));
