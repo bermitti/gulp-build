@@ -12,8 +12,8 @@ const pngquant = require('imagemin-pngquant'); //сжатиe изображен�
 //gulp-load-plugins избавляет от необходимости явно подключать плагин в gulpfile.js, но не от необходимости устанавливать npm-модуль
 const gP = require('gulp-load-plugins')(); //автоматическоe подключениe плагинов
 
+const pixelsToRem = require('postcss-pixels-to-rem');
 
-// const pixelsToRem = require('postcss-pixels-to-rem');
 // const uglify = require('gulp-uglify'); //минификации js-файлов
 // const jquery      = './node_modules/jquery/dist/jquery.js';
 // const normalize   = './node_modules/normalize.scss/normalize.scss';
@@ -23,7 +23,7 @@ const gP = require('gulp-load-plugins')(); //автоматическоe под�
 //const webpack = require('webpack');
 //const webpackConfig = require('./webpack.config.js');
 
-//переменная с описанием создания спрайта function svgSpriteBuild()
+//вспомогательная переменная для создания спрайта function svgSpriteBuild()
     const   config      = {
                 mode: {
                     symbol: {
@@ -51,7 +51,7 @@ const gP = require('gulp-load-plugins')(); //автоматическоe под�
             src: 'src/templates/**/*.pug',
         },
         styles: {
-            src: 'src/styles/**/*.scss',
+            src: 'src/styles/*.{scss,sass}', // в styles файлы *.{scss,sass}
             dest: 'build/assets/styles/'
         },    
         images: {
@@ -64,12 +64,15 @@ const gP = require('gulp-load-plugins')(); //автоматическоe под�
         },
         svg: {
             src:'src/images/svg/**/*.svg',
-            //sprite для удобства выбора, для себя
             dest:'src/images/img/icons/sprite/'
         },
         svgSprite: {
             src: 'src/images/img/icons/sprite/sprite.svg',
-            dest: 'build/images/icons/sprite'
+            dest: 'build/assets/images/icons/sprite'
+        },
+        fonts: {
+          src:'src/fonts/**/*.*',
+          dest:'build/assets/fonts/'
         }
     };
 
@@ -82,14 +85,34 @@ const gP = require('gulp-load-plugins')(); //автоматическоe под�
             //.on('end', browserSync.reload); // в функции server browserSync.watch
     };
 
-// scss
+// scss стили и конвертация px в rem
     function styles() {
-        return gulp.src('./src/styles/app.scss') //исходный файл app.scss
+
+        var plugins = [ pixelsToRem() ];
+
+        return gulp.src([paths.styles.src]) //исходный файл *.{scss,sass}
+
+            .pipe(gP.plumber({
+                errorHandler: gP.notify.onError(function(error) {
+                return {
+                    title: 'Styles',
+                    message: error.message
+                };
+                })
+            }))
+
             .pipe(sourcemaps.init())  //1.sourcemaps инициализация
-            .pipe(sass({outputStyle: 'compressed'})) //2.sourcemaps компиляция
+            .pipe(sass({outputStyle: 'compressed'})) //2. компиляция в css
+            .pipe(gP.concat('main.css'))             //2a. 'склеивание'
+            .pipe(gP.postcss(plugins))  //2b. .postcss анализирует css и вызывает pixelsToRem()
+            .pipe(gP.autoprefixer({
+                browsers: ['last 15 versions'],
+                cascade: false
+              }))
             .pipe(sourcemaps.write()) //3.sourcemaps запись
             .pipe(rename({suffix: '.min'})) //переименовали
             .pipe(gulp.dest(paths.styles.dest)) //куда положить
+            //.pipe(browserSync.stream());  >> fn watch()
     };
 
 // img переносим и минифицируем картинки
@@ -141,6 +164,19 @@ const gP = require('gulp-load-plugins')(); //автоматическоe под�
         .pipe(gulp.dest(paths.svgSprite.dest));
     };
 
+// fonts перекладываем из src в build
+    function fonts() {
+        return gulp.src(paths.fonts.src)
+        .pipe(gP.plumber({
+            errorHandler: gP.notify.onError(function(error) {
+            return {
+                title: 'Fonts',
+                message: error.message
+            };
+            })
+        }))
+        .pipe(gulp.dest(paths.fonts.dest))
+    };
 
 // очистка, удаляет все скомпилированные файлы, папку build
     function clean() {
@@ -166,7 +202,7 @@ const gP = require('gulp-load-plugins')(); //автоматическоe под�
         browserSync.watch(paths.root + '/**/*.*', browserSync.reload);
     }
 
-//для вызова функций пишем
+//для вызова функций из консоли, для отладки
     exports.templates = templates;
     exports.styles = styles;
     exports.clean = clean;
@@ -177,8 +213,8 @@ const gP = require('gulp-load-plugins')(); //автоматическоe под�
 // default
     gulp.task('default', gulp.series(
         clean,
-    //    svgSpriteBuild,
-        gulp.parallel(templates, styles, images),
-    //    gulp.parallel(fonts, scripts, svgSprite),
+        svgSpriteBuild,
+        gulp.parallel(templates, styles, svgSprite, fonts, images),
+    //    gulp.parallel(, scripts),
         gulp.parallel(watch, server)
     ));
