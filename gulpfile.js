@@ -13,8 +13,8 @@ const pngquant = require('imagemin-pngquant'); //сжатиe изображен�
 const gP = require('gulp-load-plugins')(); //автоматическоe подключениe плагинов
 
 const pixelsToRem = require('postcss-pixels-to-rem');
-
 const uglify = require('gulp-uglify'); //минификации js-файлов
+
 // const jquery      = './node_modules/jquery/dist/jquery.js';
 const normalize   = 'как его скачать?';
 
@@ -55,7 +55,7 @@ const normalize   = 'как его скачать?';
             dest: 'build/assets/styles/'
         },    
         images: {
-            src: 'src/images/**/*.*',
+            src: 'src/images/img/**/*.{png,jpg}', // в src/images/img/ в папках любой вложенности все файлы с расширением *.{png,jpg}
             dest: 'build/assets/images/'
         },
         scripts: {
