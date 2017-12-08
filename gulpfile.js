@@ -16,7 +16,7 @@ const pixelsToRem = require('postcss-pixels-to-rem');
 
 const uglify = require('gulp-uglify'); //минификации js-файлов
 // const jquery      = './node_modules/jquery/dist/jquery.js';
-// const normalize   = './node_modules/normalize.scss/normalize.scss';
+const normalize   = './node_modules/normalize.scss/normalize.scss';
 
 //разобраться
 //const gulpWebpack = require('gulp-webpack');
@@ -73,6 +73,9 @@ const uglify = require('gulp-uglify'); //минификации js-файлов
         fonts: {
           src:'src/fonts/**/*.*',
           dest:'build/assets/fonts/'
+        },
+        normalize: {
+            dest: 'build/assets/styles/'
         }
     };
 
@@ -118,17 +121,17 @@ const uglify = require('gulp-uglify'); //минификации js-файлов
 // img переносим и минифицируем картинки
     function images() {
         return gulp.src(paths.images.src)
-        //.plumber формирует вывод об ошибке
-        .pipe(gP.plumber({
-            errorHandler: gP.notify.onError(function(error) {
-            return {
-                title: 'Images',
-                message: error.message
-            };
-            })
-        }))
-        .pipe(gP.imagemin({use: [pngquant()]}))
-        .pipe(gulp.dest(paths.images.dest))
+            //.plumber формирует вывод об ошибке
+            .pipe(gP.plumber({
+                errorHandler: gP.notify.onError(function(error) {
+                return {
+                    title: 'Images',
+                    message: error.message
+                };
+                })
+            }))
+            .pipe(gP.imagemin({use: [pngquant()]}))
+            .pipe(gulp.dest(paths.images.dest))
     };
 
 // svg создание спрайта, демки и перенос в продакшн 
@@ -161,23 +164,29 @@ const uglify = require('gulp-uglify'); //минификации js-файлов
     //копируем готовый спрайт из src-исходников в build-продакшен
     function  svgSprite() {
         return gulp.src(paths.svgSprite.src)
-        .pipe(gulp.dest(paths.svgSprite.dest));
+            .pipe(gulp.dest(paths.svgSprite.dest));
     };
 
 // fonts перекладываем из src в build
     function fonts() {
         return gulp.src(paths.fonts.src)
-        .pipe(gP.plumber({
-            errorHandler: gP.notify.onError(function(error) {
-            return {
-                title: 'Fonts',
-                message: error.message
-            };
-            })
-        }))
-        .pipe(gulp.dest(paths.fonts.dest))
+            .pipe(gP.plumber({
+                errorHandler: gP.notify.onError(function(error) {
+                return {
+                    title: 'Fonts',
+                    message: error.message
+                };
+                })
+            }))
+            .pipe(gulp.dest(paths.fonts.dest))
     };
     
+// normalize перекладываем из src в build 
+    function normalizeFile() {
+        return gulp.src(normalize)
+            .pipe(gulp.dest(paths.normalize.dest))
+    }    
+
 //scripts
     function scripts() {
         return gulp.src(paths.scripts.src)
@@ -229,6 +238,7 @@ const uglify = require('gulp-uglify'); //минификации js-файлов
     exports.fonts = fonts;
     exports.styles = styles;
     exports.scripts = scripts;
+    exports.normalizeFile = normalizeFile;
 
 // default
     gulp.task('default', gulp.series(
