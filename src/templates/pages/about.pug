@@ -1,0 +1,11 @@
+//-расширяет(наследует) исходный шаблон от tamplate.pug
+extends ../template
+
+//-блок переменных, подставляем переменнуб title в наследуемый шаблон
+block variables
+    - var title = 'Обо мне'
+
+block content
+    h1 Обо мне
+    //-инклюды это аналог import в CSS
+    include ../common/technologies.pug

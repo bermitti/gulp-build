@@ -1,0 +1,10 @@
+//-расширяет(наследует) исходный шаблон от tamplate.pug
+extends ../template
+
+//-блок переменных, подставляем переменнуб title в наследуемый шаблон
+block variables
+    - var title = 'Мои работы'
+
+block content
+    h1 Мои работы
+    include ../common/slider.pug

@@ -1,0 +1,18 @@
+//-объявляем блок переменных, он не виден на странице
+block variables
+
+<!DOCTYPE html>
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        //-заменить на стили для каждой страницы
+        link(rel="stylesheet", href="/assets/styles/app.min.css") 
+        //-будем подставлять сюда заголовки #(title) для каждой страницы
+        title #{title}
+
+    body
+        block content
+        //-вставка из каждого файла
+        include common/menu.pug
