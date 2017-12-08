@@ -151,9 +151,9 @@ const gP = require('gulp-load-plugins')(); //автоматическоe под�
     function watch() {
         gulp.watch(paths.styles.src, styles);
         gulp.watch(paths.templates.src, templates);
-        //    gulp.watch(paths.images.src, images);
+        gulp.watch(paths.images.src, images);
         //    gulp.watch(paths.scripts.src, scripts);
-        //    gulp.watch(paths.svg.src, svgSpriteBuild);
+        gulp.watch(paths.svg.src, svgSpriteBuild);
         //    gulp.watch(paths.fonts.src, fonts);
     };
 
