@@ -236,7 +236,7 @@ const uglify = require('gulp-uglify'); //минификации js-файлов
     exports.fonts = fonts;
     exports.styles = styles;
     exports.scripts = scripts;
-    exports.normalizeFile = normalizeFile;
+
 
 // default
     gulp.task('default', gulp.series(
