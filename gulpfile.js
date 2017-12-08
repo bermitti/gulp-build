@@ -16,7 +16,7 @@ const pixelsToRem = require('postcss-pixels-to-rem');
 const uglify = require('gulp-uglify'); //минификации js-файлов
 
 // const jquery      = './node_modules/jquery/dist/jquery.js';
-const normalize   = 'как его скачать?';
+
 
 //разобраться
 //const gulpWebpack = require('gulp-webpack');
@@ -73,9 +73,6 @@ const normalize   = 'как его скачать?';
         fonts: {
           src:'src/fonts/**/*.*',
           dest:'build/assets/fonts/'
-        },
-        normalize: {
-            dest: 'build/assets/styles/'
         }
     };
 
@@ -105,6 +102,7 @@ const normalize   = 'как его скачать?';
             }))
 
             .pipe(sourcemaps.init())  //1.sourcemaps инициализация
+            .pipe(sass({includePaths: require('node-normalize-scss').includePaths}))
             .pipe(sass({outputStyle: 'compressed'})) //2. компиляция в css
             .pipe(gP.concat('main.css'))             //2a. 'склеивание'
             .pipe(gP.postcss(plugins))  //2b. .postcss анализирует css и вызывает pixelsToRem()
@@ -157,7 +155,7 @@ const normalize   = 'как его скачать?';
             }))
             // плагин gulp-replace заменит, если появилась, скобка '&gt;', на нормальную.
             .pipe(gP.replace('&gt;', '>'))
-            // build svg sprite dest:'src/images/img/icons/sprite/'
+            // paths.svgdest:'src/images/img/icons/sprite/
             .pipe(gP.svgSprite(config))
             .pipe(gulp.dest(paths.svg.dest));
     }
@@ -181,11 +179,11 @@ const normalize   = 'как его скачать?';
             .pipe(gulp.dest(paths.fonts.dest))
     };
     
-// normalize перекладываем из src в build 
-    function normalizeFile() {
-        return gulp.src(normalize)
-            .pipe(gulp.dest(paths.normalize.dest))
-    }    
+// // normalize перекладываем из src в build 
+//     function normalizeFile() {
+//         return gulp.src(normalize)
+//             .pipe(gulp.dest(paths.normalize.dest))
+//     }    
 
 //scripts
     function scripts() {

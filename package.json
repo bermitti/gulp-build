@@ -29,6 +29,7 @@
     "gulp-svgmin": "^1.2.4",
     "gulp-uglify": "^3.0.0",
     "imagemin-pngquant": "^5.0.1",
+    "node-normalize-scss": "^3.0.0",
     "postcss-pixels-to-rem": "^0.8.0"
   }
 }
