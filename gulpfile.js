@@ -16,7 +16,7 @@ const pixelsToRem = require('postcss-pixels-to-rem');
 
 const uglify = require('gulp-uglify'); //минификации js-файлов
 // const jquery      = './node_modules/jquery/dist/jquery.js';
-const normalize   = './node_modules/normalize.scss/normalize.scss';
+const normalize   = 'как его скачать?';
 
 //разобраться
 //const gulpWebpack = require('gulp-webpack');
