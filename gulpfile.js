@@ -15,13 +15,14 @@ const gP = require('gulp-load-plugins')(); //автоматическоe под�
 const pixelsToRem = require('postcss-pixels-to-rem');
 const uglify = require('gulp-uglify'); //минификации js-файлов
 
+const gulpWebpack = require('gulp-webpack');
+
+const gulpWebpack = require('gulp-webpack');
+const webpack = require('webpack');
+const webpackConfig = require('./webpack.config.js');
+
 // const jquery      = './node_modules/jquery/dist/jquery.js';
 
-
-//разобраться
-//const gulpWebpack = require('gulp-webpack');
-//const webpack = require('webpack');
-//const webpackConfig = require('./webpack.config.js');
 
 //вспомогательная переменная для создания спрайта function svgSpriteBuild()
     const   config      = {
@@ -59,7 +60,7 @@ const uglify = require('gulp-uglify'); //минификации js-файлов
             dest: 'build/assets/images/'
         },
         scripts: {
-            src: 'src/scripts/**/*.js', //все файла в папке и подпапках src/scripts/ с расширением .js
+            src: 'src/scripts/index.js', //
             dest: 'build/assets/scripts/'
         },
         svg: {
@@ -179,28 +180,38 @@ const uglify = require('gulp-uglify'); //минификации js-файлов
             .pipe(gulp.dest(paths.fonts.dest))
     };
     
-// // normalize перекладываем из src в build 
-//     function normalizeFile() {
-//         return gulp.src(normalize)
-//             .pipe(gulp.dest(paths.normalize.dest))
-//     }    
 
-//scripts
+//scripts webpack
     function scripts() {
         return gulp.src(paths.scripts.src)
-            .pipe(gP.plumber({
-                errorHandler: gP.notify.onError(function(error) {
-                    return {
-                        title: 'Scripts',
-                        message: error.message
-                    };
-                })
-            }))
-            .pipe(gP.sourcemaps.init())           //sourcemaps инициализация
-            .pipe(uglify())                       //минификация js-файлов
-            .pipe(gP.concat('main.min.js'))       // 'склеивание'
-            .pipe(gP.sourcemaps.write())          //sourcemaps запись
-            .pipe(gulp.dest(paths.scripts.dest))  // куда положить
+            .pipe(gulpWebpack(webpackConfig, webpack)) 
+            .pipe(gulp.dest(paths.scripts.dest));
+
+            // .pipe(gP.plumber({
+            //     errorHandler: gP.notify.onError(function(error) {
+            //         return {
+            //             title: 'Scripts',
+            //             message: error.message
+            //         };
+            //     })
+            // }))
+            // .pipe(gP.sourcemaps.init())           //sourcemaps инициализация
+            // .pipe(uglify())                       //минификация js-файлов
+            // .pipe(gP.concat('main.min.js'))       // 'склеивание'
+            // .pipe(gP.sourcemaps.write())          //sourcemaps запись
+            // .pipe(gulp.dest(paths.scripts.dest))  // куда положить
+
+        // return gulp.src('src/entry.js')
+                    // .pipe(gulpWebpack({
+                    //     entry: {
+                    //         app: 'src/scripts/index.js',
+                    //         test: 'src/scripts/menu.js',
+                    //     },
+                    //     output: {
+                    //         filename: '[name].js',
+                    //     },
+                    // }))
+                    // .pipe(gulp.dest(paths.scripts.dest));
     };    
 
 // очистка, удаляет все скомпилированные файлы, папку build
