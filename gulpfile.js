@@ -16,8 +16,6 @@ const pixelsToRem = require('postcss-pixels-to-rem');
 const uglify = require('gulp-uglify'); //минификации js-файлов
 
 const gulpWebpack = require('gulp-webpack');
-
-const gulpWebpack = require('gulp-webpack');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config.js');
 
@@ -31,7 +29,7 @@ const webpackConfig = require('./webpack.config.js');
                         sprite: "../sprite.svg",
                         render: {
                             scss: {
-                                dest: '../../../../../sass/config/_sprite.scss'
+                                dest: 'build/assets/styles/_sprite.scss'  // '../../../../../sass/config/_sprite.scss'
                             }
                         },
                         example: {
