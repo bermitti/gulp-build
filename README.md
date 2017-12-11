@@ -10,7 +10,7 @@ npm i
 
  # команды для работы со сборкой
 gulp templates         шаблонизатор html
-gulp styles            шаблонизатор sass
+gulp styles            шаблонизатор sass + добавляет normalize
 gulp images            минификация изображений
 gulp svgSpriteBuild    работа с svg и создание спрайта
 gulp svgSprite         перенос спрайта svg в build
