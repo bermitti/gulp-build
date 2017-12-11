@@ -27,11 +27,11 @@ const webpackConfig = require('./webpack.config.js');
                 mode: {
                     symbol: {
                         sprite: "../sprite.svg",
-                        render: {
-                            scss: {
-                                dest: 'build/assets/styles/_sprite.scss'  // '../../../../../sass/config/_sprite.scss'
-                            }
-                        },
+                        // // render: {
+                        // //     scss: {
+                        // //         dest: '../../../../../sass/config/_sprite.scss'
+                        // //     }
+                        // // },
                         example: {
                             dest: '../tmp/spriteSvgDemo.html' // демо html
                         }
@@ -141,20 +141,21 @@ const webpackConfig = require('./webpack.config.js');
                     pretty: true
                 }
             }))
-            // удалить все атрибуты fill, style and stroke в фигурах. Парсит, но как работает?
-            .pipe(gP.cheerio({
-                run: function($) {
-                    $('[fill]').removeAttr('fill');
-                    $('[stroke]').removeAttr('stroke');
-                    $('[style]').removeAttr('style');
-                },
-                parserOptions: {
-                    xmlMode: true
-                }
-            }))
-            // плагин gulp-replace заменит, если появилась, скобка '&gt;', на нормальную.
-            .pipe(gP.replace('&gt;', '>'))
+            // // работает в паре с закоментированным в config// удалить все атрибуты fill, style and stroke в фигурах. Парсит, но как работает?
+            // // .pipe(gP.cheerio({
+            // //     run: function($) {
+            // //         $('[fill]').removeAttr('fill');
+            // //         $('[stroke]').removeAttr('stroke');
+            // //         $('[style]').removeAttr('style');
+            // //     },
+            // //     parserOptions: {
+            // //         xmlMode: true
+            // //     }
+            // // }))
+            // // // плагин gulp-replace заменит, если появилась, скобка '&gt;', на нормальную.
+            // // .pipe(gP.replace('&gt;', '>'))
             // paths.svgdest:'src/images/img/icons/sprite/
+            // создание спрайта и демки
             .pipe(gP.svgSprite(config))
             .pipe(gulp.dest(paths.svg.dest));
     }
@@ -184,32 +185,6 @@ const webpackConfig = require('./webpack.config.js');
         return gulp.src(paths.scripts.src)
             .pipe(gulpWebpack(webpackConfig, webpack)) 
             .pipe(gulp.dest(paths.scripts.dest));
-
-            // .pipe(gP.plumber({
-            //     errorHandler: gP.notify.onError(function(error) {
-            //         return {
-            //             title: 'Scripts',
-            //             message: error.message
-            //         };
-            //     })
-            // }))
-            // .pipe(gP.sourcemaps.init())           //sourcemaps инициализация
-            // .pipe(uglify())                       //минификация js-файлов
-            // .pipe(gP.concat('main.min.js'))       // 'склеивание'
-            // .pipe(gP.sourcemaps.write())          //sourcemaps запись
-            // .pipe(gulp.dest(paths.scripts.dest))  // куда положить
-
-        // return gulp.src('src/entry.js')
-                    // .pipe(gulpWebpack({
-                    //     entry: {
-                    //         app: 'src/scripts/index.js',
-                    //         test: 'src/scripts/menu.js',
-                    //     },
-                    //     output: {
-                    //         filename: '[name].js',
-                    //     },
-                    // }))
-                    // .pipe(gulp.dest(paths.scripts.dest));
     };    
 
 // очистка, удаляет все скомпилированные файлы, папку build
