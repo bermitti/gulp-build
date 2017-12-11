@@ -24,12 +24,15 @@ gulp styles            шаблонизатор sass + добавляет normal
 
 gulp images            минификация изображений </br>
 
-gulp svgSpriteBuild    работа с svg и создание спрайта
+gulp svgSpriteBuild    работа с svg и создание спрайта </br>
 
-gulp svgSprite         перенос спрайта svg в build
-gulp fonts       перенос шрифтов в build.  для генерации используем отдельно https://www.fontsquirrel.com/
-gulp scripts           работа с файлами-js.  Вызывает webpack
-gulp clean             очистка дирректории build
+gulp svgSprite         перенос спрайта svg в build </br>
+
+gulp fonts       перенос шрифтов в build.  для генерации используем отдельно https://www.fontsquirrel.com/ </br>
+
+gulp scripts           работа с файлами-js.  Вызывает webpack </br>
+
+gulp clean             очистка дирректории build </br>
 
  
 
