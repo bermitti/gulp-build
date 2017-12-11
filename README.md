@@ -17,10 +17,15 @@ cборка Gulp
 
 
   команды для работы со сборкой
-gulp templates         шаблонизатор html
-gulp styles            шаблонизатор sass + добавляет normalize
-gulp images            минификация изображений
+
+gulp templates         шаблонизатор html </br>
+
+gulp styles            шаблонизатор sass + добавляет normalize </br>
+
+gulp images            минификация изображений </br>
+
 gulp svgSpriteBuild    работа с svg и создание спрайта
+
 gulp svgSprite         перенос спрайта svg в build
 gulp fonts       перенос шрифтов в build.  для генерации используем отдельно https://www.fontsquirrel.com/
 gulp scripts           работа с файлами-js.  Вызывает webpack
