@@ -6,6 +6,60 @@ block variables
     - var title = 'Обо мне'
 
 block content
-    h1 Обо мне
-    //-инклюды это аналог import в CSS
-    include ../common/technologies.pug
+    //- //-инклюды это аналог import в CSS
+    //- include ../common/technologies.pug
+
+    section.section.hero
+        //позиционирование внутренних элементов(блоков)
+        .hero__socials
+            //блок без позиционирования
+            ul.socials 
+                each item in ['vk', 'tw', 'in']
+                    li.socials__item
+                        a(href=`${item}`).socials__link
+
+        //миксин. позиционирование .humburger  вешаем на класс .hero__menu
+        a(href="").humburger.hero__menu
+
+        .hero__title
+            .section-title
+                img section-title__pic
+            //миксин. позиционирование для элемента .hero__user //блок .user без позиционирования
+            .hero__user.user
+                .user__pic
+                    img .user__pic-img
+                .user__info
+                    .user__name Владимир Астахов
+                    .user__data Личный сайт разработчика
+
+        //миксин. позиционирование .hero__arrow  а отображение через класс .arrow__down
+        .hero__arrow.arrow__down
+
+    section.section.about
+        .about__left
+            //треугольники позицианируем position: absolute   -top
+            .about__triangle.about__triangle_left
+                //название класса .triangle_fill_white только когда меняем одно свойство!
+                svg.triangle.triangle_fill_white
+            .about__left-title
+                .block-title Обо мне
+
+            .about__left-content
+                .user-description
+                    .user-description__image
+                        img.user-description__avatar
+                    .user-description__title
+                        .block-subtitle Кто я
+                        //стилизуем  блок с классом .text-block
+                    .user-description__text.text-block      
+                        p Я веб разработчик из Новосибирска
+                        p Я веб разработчик из Новосибирска
+
+        .about__right
+            //треугольники позицианируем position: absolute   -top
+            .about__triangle.about__triangle_right
+                svg.triangle.triangle_fill_beige
+
+    section.section
+
+    footer.footer
