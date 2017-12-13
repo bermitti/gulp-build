@@ -1,9 +1,13 @@
 @import "normalize"; //node-normalize-scss
 
-body{
-    margin: 100px;
-    background: rgb(84, 250, 6)
+
+.wrapper {
+    height: 100%;
 }
+
+
 @import 'common/menu';
 @import 'common/technologies';
 @import 'common/slider';
+@import "common/welcom";
+

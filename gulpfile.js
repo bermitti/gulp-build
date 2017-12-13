@@ -106,7 +106,7 @@ const webpackConfig = require('./webpack.config.js');
             .pipe(gP.concat('main.css'))             //2a. 'склеивание'
             .pipe(gP.postcss(plugins))  //2b. .postcss анализирует css и вызывает pixelsToRem()
             .pipe(gP.autoprefixer({
-                browsers: ['last 15 versions'],
+                browsers: ['last 3 versions'],
                 cascade: false
               }))
             .pipe(sourcemaps.write()) //3.sourcemaps запись
@@ -226,6 +226,6 @@ const webpackConfig = require('./webpack.config.js');
     gulp.task('default', gulp.series(
         clean,
         svgSpriteBuild,
-        gulp.parallel(templates, styles, svgSprite, fonts, images, scripts),
+        gulp.parallel(styles, templates, svgSprite, fonts, images, scripts),
         gulp.parallel(watch, server)
     ));
