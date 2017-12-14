@@ -50,7 +50,7 @@ const webpackConfig = require('./webpack.config.js');
             src: 'src/templates/**/*.pug',
         },
         styles: {
-            src: 'src/styles/*.{scss,sass}', // в styles файлы *.{scss,sass}
+            src: 'src/styles/**/*.scss', 
             dest: 'build/assets/styles/'
         },    
         images: {
@@ -84,36 +84,48 @@ const webpackConfig = require('./webpack.config.js');
             //.on('end', browserSync.reload); // в функции server browserSync.watch
     };
 
-// scss стили и конвертация px в rem
-    function styles() {
+// // scss стили и конвертация px в rem
+//     function styles() {
 
-        var plugins = [ pixelsToRem() ];
+//         var plugins = [ pixelsToRem() ];
 
-        return gulp.src([paths.styles.src]) //исходный файл *.{scss,sass}
+//         return gulp.src(paths.styles.src) 
 
-            .pipe(gP.plumber({
-                errorHandler: gP.notify.onError(function(error) {
-                return {
-                    title: 'Styles',
-                    message: error.message
-                };
-                })
-            }))
+//             .pipe(gP.plumber({
+//                 errorHandler: gP.notify.onError(function(error) {
+//                 return {
+//                     title: 'Styles',
+//                     message: error.message
+//                 };
+//                 })
+//             }))
 
-            .pipe(sourcemaps.init())  //1.sourcemaps инициализация
-            .pipe(sass({includePaths: require('node-normalize-scss').includePaths}))
-            .pipe(sass({outputStyle: 'compressed'})) //2. компиляция в css
-            .pipe(gP.concat('main.css'))             //2a. 'склеивание'
-            .pipe(gP.postcss(plugins))  //2b. .postcss анализирует css и вызывает pixelsToRem()
-            .pipe(gP.autoprefixer({
-                browsers: ['last 3 versions'],
-                cascade: false
-              }))
-            .pipe(sourcemaps.write()) //3.sourcemaps запись
-            .pipe(rename({suffix: '.min'})) //переименовали
-            .pipe(gulp.dest(paths.styles.dest)) //куда положить
-            //.pipe(browserSync.stream());  >> fn watch()
-    };
+//             .pipe(sourcemaps.init())  //1.sourcemaps инициализация
+//             .pipe(sass({includePaths: require('node-normalize-scss').includePaths}))
+//             .pipe(sass({outputStyle: 'compressed'})) //2. компиляция в css
+//             .pipe(gP.concat('main.css'))             //2a. 'склеивание'
+//             .pipe(gP.postcss(plugins))  //2b. .postcss анализирует css и вызывает pixelsToRem()
+//             .pipe(gP.autoprefixer({
+//                 browsers: ['last 3 versions'],
+//                 cascade: false
+//               }))
+//             .pipe(sourcemaps.write()) //3.sourcemaps запись
+//             .pipe(rename({suffix: '.min'})) //переименовали
+//             .pipe(gulp.dest(paths.styles.dest)) //куда положить
+//             .pipe(browserSync.stream()); 
+//     };
+
+// scss
+function styles() {
+    return gulp.src(paths.styles.src) //исходный файл app.scss
+        .pipe(sourcemaps.init())  //1.sourcemaps инициализация
+        .pipe(sass({outputStyle: 'compressed', includePaths: require('node-normalize-scss').includePaths})) //2.sourcemaps компиляция
+        .pipe(sourcemaps.write()) //3.sourcemaps запись
+        .pipe(rename({suffix: '.min'})) //переименовали
+        .pipe(gulp.dest(paths.styles.dest)) //куда положить
+}
+
+
 
 // img переносим и минифицируем картинки
     function images() {
@@ -209,6 +221,7 @@ const webpackConfig = require('./webpack.config.js');
         });
         //следит за папкой build + всеми файлами в ней, перезагружает при изменении
         browserSync.watch(paths.root + '/**/*.*', browserSync.reload);
+        // browserSync.watch(paths.root, browserSync.reload);  юра советовал
     }
 
 //для отладки, вызов функций из консоли
@@ -226,6 +239,6 @@ const webpackConfig = require('./webpack.config.js');
     gulp.task('default', gulp.series(
         clean,
         svgSpriteBuild,
-        gulp.parallel(styles, templates, svgSprite, fonts, images, scripts),
+        gulp.parallel(templates, styles, svgSprite, fonts, images, scripts),
         gulp.parallel(watch, server)
     ));

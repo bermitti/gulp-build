@@ -1,5 +1,5 @@
 
-.container-welcom {
+.welcome {
     background-image: url(../images/bg/bg-welcom.png);
     height: 100vh;
     background-size: cover;
@@ -7,9 +7,8 @@
     flex-direction: column;
 
 }
-.header-welcom {
+.welcome__header {
     height: 90px;
-    border: 1px solid red;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -22,22 +21,105 @@
     color: white;
     background-color: transparent;
     padding: 10px;
+    transition:all 1s ease-in-out;
     &:hover{
-        background-color: rgb(9, 82, 9);
+        background-color: white;
+        border-color: transparent;
+        color: #00bfa5;
     }
 }
-.section-welcom {
+.welcome__content {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid rgb(0, 255, 85);
 }
-.footer-welcom {
+
+.flipper__front{
+    //-растягиваю отступами в блоке кнопок width: 380px;
+    height: 395px;
+    background-color: rgba(252, 252, 252, 0.85);
+    display: flex;
+    flex-direction: column;
+}
+
+//-убрать в отдельный файл
+.user{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0 0;
+    &__pic{
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-bottom: 20px;
+    }
+    &__info{
+        text-align: center;
+    }
+    &__name{
+        margin-bottom: 10px;
+    }
+}
+
+.welcome__socials{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav__link_welcome{
+    background-color: #00bfa5;
+}
+
+//-убрать в отдельный файл
+.nav__list{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.nav__item{
+    display: inline-block;
+    border-right: solid 2px #6fd1c6;
+    &:last-child{
+        border-right: none;
+    }
+}
+.nav__link{
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 33px;
+    white-space: nowrap;
+    color: white;
+}
+
+//-убрать в отдельный файл
+.socials{
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    &__item{
+        padding: 0 10px;
+    }
+    &__icon{
+        width: 30px;
+        height: 24px;
+        fill: #099e88;
+    }
+}
+
+
+
+.welcome__footer {
     height: 90px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
-    border: 1px solid rgb(76, 0, 255);
 }

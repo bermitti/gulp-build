@@ -4,17 +4,68 @@ extends ../template
 //-блок переменных, подставляем переменнуб title в наследуемый шаблон
 block variables
     - var title = 'Главная страница'
+    //-??????почему если объявляю тут ругается?
+    //- - var navItems = [
+    //-     {'name':'Мои работы', 'href':'my-works.html'},
+    //-     {'name':'Обо мне', 'href':'about.html'},
+    //-     {'name':'Блог', 'href':'blog.html'}
+    //- ]
 
 block content
-    .container-welcom
-        header.header-welcom
-            .header-welcom__login
+    .welcome
+        header.welcome__header
+            .welcome__login
                 button.btn-login Авторизироваться
-        section.section-welcom 
-            .section-welcom__profile
-        footer.footer-welcom
-            .footer-welcom__description
-                p Владимир Астахов
+        section.welcome__content
+            .welcome__flipper
+                .flipper
+                    .flipper__front
+                        //cтили в .welcome__user , а .user можно вынести миксином  
+                        .welcome__user.user
+                            .user__pic
+                                img.user__pic-img(src="assets/images/elem/user.png", alt="")
+                            .user__info
+                                .user__name Владимир Астахов
+                                .user__data Личный сайт разработчика
+
+                        .welcome__socials
+                            //блок без позиционирования. сделать потом миксином.
+                            //- ul.socials 
+                            //-     each item in ['vk', 'tw', 'in']
+                            //-         li.socials__item
+                            //-             a(href=`${item}`).socials__link
+                            ul.socials
+                                li.socials__item
+                                    a.socials__link(href="https://vk.com/id431828997")
+                                        svg.socials__icon
+                                            use(xlink:href="assets/images/icons/sprite/sprite.svg#vk")
+                                li.socials__item
+                                    a.socials__link(href="https://github.com/bermitti/gulp-build") 
+                                        svg.socials__icon      
+                                            use(xlink:href="assets/images/icons/sprite/sprite.svg#github")                             
+                                li.socials__item
+                                    a.socials__link(href="#")
+                                        svg.socials__icon
+                                            use(xlink:href="assets/images/icons/sprite/sprite.svg#in")
+
+                        .welcome__buttons
+                            //-?????почему в ф-ии нижу выдаёт ошибку
+                            //- ul.nav__list.nav__list_welcome
+                            //-     for( i = 0; i < navItems.length; i++)
+                            //-         li.nav__item
+                            //-             a(href=`${navItems[i].href}`).nav__link.nav__link_welcome=items[i].name
+                            ul.nav__list.nav__list_welcome
+                                li.nav__item
+                                    a.nav__link.nav__link_welcome(href="my_works.html") Мои работы
+                                li.nav__item
+                                    a.nav__link.nav__link_welcome(href="about.html") Обо мне
+                                li.nav__item
+                                    a.nav__link.nav__link_welcome(href="blog.html") Блог                                    
+
+                    .flipper__back
+        footer.welcome__footer
+            .welcome__footer-copyright
+                p © Владимир Астахов | создано с любовью в LoftSchool | 2017
 
 
 
