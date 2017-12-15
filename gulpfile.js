@@ -22,16 +22,16 @@ const webpackConfig = require('./webpack.config.js');
 // const jquery      = './node_modules/jquery/dist/jquery.js';
 
 
-//вспомогательная переменная для создания спрайта function svgSpriteBuild()
+//вспомогательная переменная для создания спрайта в function svgSpriteBuild()
     const   config      = {
                 mode: {
                     symbol: {
                         sprite: "../sprite.svg",
-                        // // render: {
-                        // //     scss: {
-                        // //         dest: '../../../../../sass/config/_sprite.scss'
-                        // //     }
-                        // // },
+                        render: {
+                            scss: {
+                                dest: '../../../../../sass/config/_sprite.scss'
+                            }
+                        },
                         example: {
                             dest: '../tmp/spriteSvgDemo.html' // демо html
                         }
@@ -153,20 +153,20 @@ function styles() {
                     pretty: true
                 }
             }))
-            // // работает в паре с закоментированным в config// удалить все атрибуты fill, style and stroke в фигурах. Парсит, но как работает?
-            // // .pipe(gP.cheerio({
-            // //     run: function($) {
-            // //         $('[fill]').removeAttr('fill');
-            // //         $('[stroke]').removeAttr('stroke');
-            // //         $('[style]').removeAttr('style');
-            // //     },
-            // //     parserOptions: {
-            // //         xmlMode: true
-            // //     }
-            // // }))
-            // // // плагин gulp-replace заменит, если появилась, скобка '&gt;', на нормальную.
-            // // .pipe(gP.replace('&gt;', '>'))
-            // paths.svgdest:'src/images/img/icons/sprite/
+            //удалит все атрибуты fill, style and stroke в фигурах. Парсит, но как работает?
+            .pipe(gP.cheerio({
+                run: function($) {
+                    $('[fill]').removeAttr('fill');
+                    $('[stroke]').removeAttr('stroke');
+                    $('[style]').removeAttr('style');
+                },
+                parserOptions: {
+                    xmlMode: true
+                }
+            }))
+            // плагин gulp-replace заменит, если появилась, скобка '&gt;', на нормальную.
+            .pipe(gP.replace('&gt;', '>'))
+            //paths.svgdest:'src/images/img/icons/sprite/'
             // создание спрайта и демки
             .pipe(gP.svgSprite(config))
             .pipe(gulp.dest(paths.svg.dest));

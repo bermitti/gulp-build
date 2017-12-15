@@ -28,6 +28,11 @@
         color: #00bfa5;
     }
 }
+//-Лейсан. Свойство убирающее внещние гран. при нажатии
+button.btn-login:focus {
+    outline: none;
+ }
+
 .welcome__content {
     flex: 1;
     display: flex;
@@ -73,6 +78,9 @@
 
 .nav__link_welcome{
     background-color: #00bfa5;
+    &:hover{
+        background-color: #0e9289;
+    }
 }
 
 //-убрать в отдельный файл
@@ -110,7 +118,10 @@
     &__icon{
         width: 30px;
         height: 24px;
-        fill: #099e88;
+        fill: #00bfa5;
+        &:hover{
+            fill: #0e9289;
+        }
     }
 }
 
