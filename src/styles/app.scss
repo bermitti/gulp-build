@@ -13,6 +13,8 @@ ul{
 @import "common/about";
 @import "common/svg_skill";
 //-указывать с окончанием *.scss нельзя, выдаст ошибку
+@import "common/my-works";
+
 
 @import 'common/menu';
 @import 'common/technologies';

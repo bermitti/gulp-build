@@ -15,6 +15,7 @@ block variables
 block content
 
     section.section.hero
+        a.my-works__anchor(name="my-works-header")
         .hero__header
             //позиционирование внутренних элементов(блоков)
             .hero__socials
@@ -59,6 +60,21 @@ block content
 
     section.section.my-works
         a.my-works__anchor(name="my-works")
+        //-треугольники позицианируем position: absolute   -top
+        .my-works__triangls
+            .my-works__triangle_works
+                  svg.triangle.triangle_fill_my-works
+                    use(xlink:href="assets/images/icons/sprite/sprite.svg#my_about_bg_left")
+            .my-works__triangle_works
+                svg.triangle.triangle_fill_my-works
+                    use(xlink:href="assets/images/icons/sprite/sprite.svg#my_about_bg_right")
+        .my-works__title
+            .my-works__title-bg
+                svg.my-works__title-pic
+                    use(xlink:href="assets/images/icons/sprite/sprite.svg#works_header")
+            .my-works__title-descr
+                .block-title Мои работы   
+                    
 
 
     section.section.about-me

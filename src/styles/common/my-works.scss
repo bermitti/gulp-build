@@ -1,0 +1,45 @@
+
+
+.my-works{
+    position: relative;
+    width: 100%;
+
+}
+
+.my-works__triangls{
+    width: 100%;
+    display: flex;
+    position: absolute;
+    bottom: 97%;
+}
+.my-works__triangle_works{
+    width: 100%;    
+}
+.triangle{
+    width: 100%;
+    &_fill_my-works{
+        fill: #faf8f0;
+    }
+}
+
+.my-works__title{
+    background-color: #faf8f0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &-pic{
+        fill: #f0eee7;
+    }
+    &-descr{
+        position: absolute;
+    }
+}
+
+
+.about-me{
+    height: 100vh;
+    background-image: url(../images/bg/bg-my-work.png);
+    background-size: cover;
+    background-position: center;
+}

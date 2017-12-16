@@ -75,7 +75,7 @@
 .about{
     display: flex;
 }
-.about__triangle{
+.about__triangle_left,.about__triangle_right{
     bottom: 99%;
     position: absolute;
     width: 100%;
@@ -261,7 +261,7 @@
 }
 
 //-оформление заголовков
-.block-subtitle::before,.block-subtitle::after{
+.block-subtitle::before,.block-subtitle::after,.block-title::before,.block-title::after{
     content: "";
     display: inline-block;
     width: 20px;
@@ -271,7 +271,7 @@
     background-color: rgba(9, 10, 10, 0.3);
     opacity: .9;
 }
-.block-subtitle{
+.block-subtitle,.block-title{
     box-sizing: border-box;
     display: flex;
     align-items: center;
