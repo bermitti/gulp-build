@@ -3,9 +3,9 @@
     background-image: url(../images/bg/bg-welcom.png);
     height: 100vh;
     background-size: cover;
+    background-position: center;
     display: flex;
     flex-direction: column;
-
 }
 .welcome__header {
     height: 90px;
@@ -108,6 +108,7 @@ button.btn-login:focus {
 
 //-убрать в отдельный файл
 .socials{
+    margin: 0;
     padding: 0;
     list-style: none;
     display: flex;
@@ -118,14 +119,20 @@ button.btn-login:focus {
     &__icon{
         width: 30px;
         height: 24px;
-        fill: #00bfa5;
-        &:hover{
-            fill: #0e9289;
-        }
+        // fill: #00bfa5;
+        // &:hover{
+        //     fill: #0e9289;
+        // }
     }
 }
 
-
+//-модификатор svg  для страницы welcome
+.socials__icon_welcome{
+    fill: #00bfa5;
+    &:hover{
+        fill: #0e9289;
+    }
+}
 
 .welcome__footer {
     height: 90px;

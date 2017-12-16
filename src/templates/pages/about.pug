@@ -10,30 +10,52 @@ block content
     //- include ../common/technologies.pug
 
     section.section.hero
-        //позиционирование внутренних элементов(блоков)
-        .hero__socials
-            //блок без позиционирования. сделать потом миксином.
-            ul.socials 
-                each item in ['vk', 'tw', 'in']
+        .hero__header
+            //позиционирование внутренних элементов(блоков)
+            .hero__socials
+                //блок без позиционирования. сделать потом миксином.
+                //- ul.socials 
+                //-     each item in ['vk', 'tw', 'in']
+                //-         li.socials__item
+                //-             a(href=`${item}`).socials__link
+                ul.socials
                     li.socials__item
-                        a(href=`${item}`).socials__link
+                        a.socials__link(href="https://vk.com/id431828997")
+                            svg.socials__icon.socials__icon_about
+                                use(xlink:href="assets/images/icons/sprite/sprite.svg#vk")
+                    li.socials__item
+                        a.socials__link(href="https://github.com/bermitti/gulp-build") 
+                            svg.socials__icon.socials__icon_about      
+                                use(xlink:href="assets/images/icons/sprite/sprite.svg#github")                             
+                    li.socials__item
+                        a.socials__link(href="#")
+                            svg.socials__icon.socials__icon_about
+                                use(xlink:href="assets/images/icons/sprite/sprite.svg#in")
 
-        //миксин. позиционирование .humburger  вешаем на класс .hero__menu
-        a(href="").humburger.hero__menu
+
+            //миксин. позиционирование .humburger  вешаем на класс .hero__menu
+            a(href="").humburger.hero__menu
+                            svg.humburger__icon.humburger__icon_about
+                                use(xlink:href="assets/images/icons/sprite/sprite.svg#hamburger")
 
         .hero__title
             .section-title
-                img.section-title__pic
+                svg.section-title__pic
+                    use(xlink:href="assets/images/icons/sprite/sprite.svg#portfolio_header")
+                
             //миксин. позиционирование для элемента .hero__user //блок .user без позиционирования
             .hero__user.user
                 .user__pic
-                    img.user__pic-img
+                    img.user__pic-img(src="assets/images/elem/user.png", alt="")
                 .user__info
                     .user__name Владимир Астахов
                     .user__data Личный сайт разработчика
 
+
         //миксин. позиционирование .hero__arrow  а отображение через класс .arrow__down
         .hero__arrow.arrow__down
+            svg.arrow__icon
+                use(xlink:href="assets/images/icons/sprite/sprite.svg#arrow_down")
 
     section.section.about
         .about__left
@@ -41,41 +63,105 @@ block content
             .about__triangle.about__triangle_left
                 //название класса .triangle_fill_white только когда меняем одно свойство!
                 svg.triangle.triangle_fill_white
+                    use(xlink:href="assets/images/icons/sprite/sprite.svg#my_about_bg_left")
             .about__left-title
                 .block-title Обо мне
 
             .about__left-content
                 .user-description
                     .user-description__image
-                        img.user-description__avatar
+                        img.user-description__avatar(src="assets/images/elem/user-about.png", alt="")
                     .user-description__title
                         .block-subtitle Кто я
                         //стилизуем  блок с классом .text-block .Для позиционирования .user-description__text
                     .user-description__text.text-block      
-                        p Я веб разработчик из Новосибирска
-                        p Я веб разработчик из Новосибирска
+                        p Я веб разработчик из Новосибирска. Мне 27 лет. Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+                        p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите,как тут всё классно и красиво!
 
         .about__right
             //треугольники позицианируем position: absolute   -top
             .about__triangle.about__triangle_right
                 //название класса .triangle_fill_beige только когда меняем одно свойство!
                 svg.triangle.triangle_fill_beige
+                    use(xlink:href="assets/images/icons/sprite/sprite.svg#my_about_bg_right")
             //использование миксина (.block-subtitle)
             .about__right-title.block-subtitle Чем я могу быть вам полезен   
             .user__right-description.text-block 
                 p Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать не сложные задачи на Backend. Но давайте по порядку.
             .about__right-content       
+                //- ul.skills-list
+                //-     each item in ['Frontend', 'Backend', 'Workflow']
+                //-         li.skills-list__item
+                //-             .skills-row
+                //-                 .skills-row__title #{item}
+                //-                 ul.skills-row__list
+                //-                     li.skills-row__item
+                //-                         .skill(data-percents='73')
+                //-                             svg.skill__circle
+                //-                             .skill__title
                 ul.skills-list
-                    each item in ['Frontend', 'Backend', 'Workflow']
-                        li.skills-list__item
+                    li.skills-list__item
                             .skills-row
-                                .skills-row__title #{item}
+                                .skills-row__title Frontend
                                 ul.skills-row__list
                                     li.skills-row__item
                                         .skill(data-percents='73')
                                             svg.skill__circle
-                                            .skill__title
-
+                                                use(xlink:href="assets/images/icons/sprite/sprite.svg#EllipseGrey")
+                                            .skill__title HTML5      
+                                    li.skills-row__item
+                                        .skill(data-percents='73')
+                                            svg.skill__circle
+                                                use(xlink:href="assets/images/icons/sprite/sprite.svg#EllipseGrey")
+                                            .skill__title CSS3 
+                                    li.skills-row__item
+                                        .skill(data-percents='73')
+                                            svg.skill__circle
+                                                use(xlink:href="assets/images/icons/sprite/sprite.svg#EllipseGrey")
+                                            .skill__title JavaScript & JQuery                                                                                                          
+                    li.skills-list__item
+                            .skills-row
+                                .skills-row__title Backend
+                                ul.skills-row__list
+                                    li.skills-row__item
+                                        .skill(data-percents='73')
+                                            svg.skill__circle
+                                                use(xlink:href="assets/images/icons/sprite/sprite.svg#EllipseGrey")
+                                            .skill__title PHP 
+                                    li.skills-row__item
+                                        .skill(data-percents='73')
+                                            svg.skill__circle
+                                                use(xlink:href="assets/images/icons/sprite/sprite.svg#EllipseGrey")
+                                            .skill__title MySQL                                                 
+                                    li.skills-row__item
+                                        .skill(data-percents='73')
+                                            svg.skill__circle
+                                                use(xlink:href="assets/images/icons/sprite/sprite.svg#EllipseGrey")
+                                            .skill__title Node.js & npm 
+                                    li.skills-row__item
+                                        .skill(data-percents='73')
+                                            svg.skill__circle
+                                                use(xlink:href="assets/images/icons/sprite/sprite.svg#EllipseGrey")
+                                            .skill__title Mongo.db 
+                    li.skills-list__item
+                            .skills-row
+                                .skills-row__title Workflow
+                                ul.skills-row__list
+                                    li.skills-row__item
+                                        .skill(data-percents='73')
+                                            svg.skill__circle
+                                                use(xlink:href="assets/images/icons/sprite/sprite.svg#EllipseGrey")
+                                            .skill__title Git      
+                                    li.skills-row__item
+                                        .skill(data-percents='73')
+                                            svg.skill__circle
+                                                use(xlink:href="assets/images/icons/sprite/sprite.svg#EllipseGrey")
+                                            .skill__title Gulp 
+                                    li.skills-row__item
+                                        .skill(data-percents='50')
+                                            svg.skill__circle
+                                                use(xlink:href="assets/images/icons/sprite/sprite.svg#EllipseGrey")
+                                            .skill__title Webpack 
     section.section.map
         .google-map
         .map-data

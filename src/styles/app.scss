@@ -5,9 +5,11 @@
     height: 100%;
 }
 
+@import "common/welcom";
+@import "common/about";
 
 @import 'common/menu';
 @import 'common/technologies';
 @import 'common/slider';
-@import "common/welcom";
+
 

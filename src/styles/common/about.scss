@@ -1,0 +1,169 @@
+
+.hero{
+    height: 100vh;
+    background-image: url(../images/bg/bg-welcom.png);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.hero__header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+}
+
+
+.socials__icon_about{
+    fill: rgba(252, 252, 252, 0.5);
+    &:hover{
+        fill: rgba(252, 252, 252, 1);
+    }
+}
+//-можно вынести в файл svg.scss
+.humburger__icon{
+    width: 40px;
+    height: 40px;
+}
+.humburger__icon_about{
+    fill: rgba(255, 255, 255, 1);
+}
+
+.hero__title{
+    position: relative;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-title{
+    width: 90%;
+    height: 275px;
+    &__pic{
+        fill: rgba(255, 255, 255, 0.3);
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.hero__user{
+    color: white;
+    position: absolute;
+}
+.hero__arrow{
+
+    display: flex;
+    justify-content: center;
+}
+.arrow__down{
+    padding-bottom: 70px;
+}
+.arrow__icon{
+    width: 25px;
+    height: 25px;
+    fill: rgba(255, 255, 255, 0.7);
+    &:hover{
+        fill: rgba(255, 255, 255, 1);
+    }
+}
+
+//-section.section.about
+.about{
+    display: flex;
+}
+.about__triangle{
+    bottom: 99%;
+    position: absolute;
+    width: 100%;
+}
+
+.about__left{
+    width: 50%;
+    position: relative;
+    background-color: #efeee9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &-content{
+        box-sizing: border-box;
+        width: 100%;
+        padding: 20px 80px 20px; 
+    }
+}
+.triangle_fill_white{
+    fill: #efeee9;
+    width: 100%;
+}
+
+.user-description{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__avatar{
+        max-width: 290px;
+    }
+    &__title{
+        padding: 40px 0 30px;
+    }
+}
+
+.block-title{
+    ::after{
+        content: '';
+        display: block;
+        width: 22px;
+        height: 5px;
+        background-color: #03161f;
+        margin: 0 16px;
+    }
+}
+
+
+
+
+.about__right{
+    width: 50%;
+    position: relative;
+    background-color: #eeebdf;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &-content{
+        box-sizing: border-box; //чтобы не вылазил список скилов
+        width: 100%;
+        padding: 20px; 
+    }
+}
+.triangle_fill_beige{
+    fill: #eeebdf;
+    width: 100%;
+}
+.about__right-title{
+    padding: 0 190px;
+    text-align: center;
+}
+.user__right-description{
+    padding: 0 30px;
+}
+
+//-стили для скиллов
+.skills-list{
+    list-style: none;
+}
+.skills-row__list{
+    display: flex;
+}
+.skill__circle{
+    width: 110px;
+    height: 110px;
+    fill: rgb(80, 173, 250);
+}
+
+//-cтили для секции .map
+.map{
+    height: 100vh;
+    background-color: greenyellow;
+}
