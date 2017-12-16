@@ -4,12 +4,12 @@ extends ../template
 //-блок переменных, подставляем переменнуб title в наследуемый шаблон
 block variables
     - var title = 'Главная страница'
-    //-??????почему если объявляю тут ругается?
-    //- - var navItems = [
-    //-     {'name':'Мои работы', 'href':'my-works.html'},
-    //-     {'name':'Обо мне', 'href':'about.html'},
-    //-     {'name':'Блог', 'href':'blog.html'}
-    //- ]
+    - 
+        var navItems = [
+            {'name':'Мои работы', 'href':'my_works.html'},
+            {'name':'Обо мне', 'href':'about.html'},
+            {'name':'Блог', 'href':'blog.html'}
+        ]
 
 block content
     .welcome
@@ -49,18 +49,18 @@ block content
                                             use(xlink:href="assets/images/icons/sprite/sprite.svg#in")
 
                         .welcome__buttons
-                            //-?????почему в ф-ии нижу выдаёт ошибку
-                            //- ul.nav__list.nav__list_welcome
-                            //-     for( i = 0; i < navItems.length; i++)
-                            //-         li.nav__item
-                            //-             a(href=`${navItems[i].href}`).nav__link.nav__link_welcome=items[i].name
                             ul.nav__list.nav__list_welcome
-                                li.nav__item
-                                    a.nav__link.nav__link_welcome(href="my_works.html") Мои работы
-                                li.nav__item
-                                    a.nav__link.nav__link_welcome(href="about.html") Обо мне
-                                li.nav__item
-                                    a.nav__link.nav__link_welcome(href="blog.html") Блог                                    
+                                - var i = 0
+                                - for( i ; i < navItems.length; i++)
+                                    li.nav__item
+                                        a(href=`${navItems[i].href}`).nav__link.nav__link_welcome=navItems[i].name
+                            //- ul.nav__list.nav__list_welcome
+                            //-     li.nav__item
+                            //-         a.nav__link.nav__link_welcome(href="my_works.html") Мои работы
+                            //-     li.nav__item
+                            //-         a.nav__link.nav__link_welcome(href="about.html") Обо мне
+                            //-     li.nav__item
+                            //-         a.nav__link.nav__link_welcome(href="blog.html") Блог                                    
 
                     .flipper__back
         footer.welcome__footer

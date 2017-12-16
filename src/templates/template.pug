@@ -12,6 +12,7 @@ html(lang="ru")
         link(rel="stylesheet", href="/assets/styles/app.min.css") 
         //-будем подставлять сюда заголовки #(title) для каждой страницы
         title #{title}
+        //- script(async, defer, src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPNNwBKiezkzEec7PFI6X3A-5xNHA6dJ4&callback=initMap", type="text/javascript")
 
     body
         .wrapper
@@ -19,3 +20,5 @@ html(lang="ru")
             //-вставка из каждого файла
             
             include common/menu.pug
+
+        //- script(async defer src="https://maps.googleapis.com/maps/api/js?callback=initMap") 

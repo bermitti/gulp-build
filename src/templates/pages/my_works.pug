@@ -4,7 +4,98 @@ extends ../template
 //-блок переменных, подставляем переменнуб title в наследуемый шаблон
 block variables
     - var title = 'Мои работы'
-
+    - 
+        var navItemsFooter = [
+            {'name':'Мои работы', 'href':'my_works.html'},
+            {'name':'Обо мне', 'href':'about.html'},
+            {'name':'Блог', 'href':'blog.html'},
+            {'name':'Авторизация', 'href':'index.html'}
+        ]
+    //- include ../common/slider.pug
 block content
-    h1 Мои работы
-    include ../common/slider.pug
+
+    section.section.hero
+        .hero__header
+            //позиционирование внутренних элементов(блоков)
+            .hero__socials
+                //блок без позиционирования. сделать потом миксином.
+                ul.socials
+                    li.socials__item
+                        a.socials__link(href="https://vk.com/id431828997")
+                            svg.socials__icon.socials__icon_about
+                                use(xlink:href="assets/images/icons/sprite/sprite.svg#vk")
+                    li.socials__item
+                        a.socials__link(href="https://github.com/bermitti/gulp-build") 
+                            svg.socials__icon.socials__icon_about      
+                                use(xlink:href="assets/images/icons/sprite/sprite.svg#github")                             
+                    li.socials__item
+                        a.socials__link(href="#")
+                            svg.socials__icon.socials__icon_about
+                                use(xlink:href="assets/images/icons/sprite/sprite.svg#in")
+
+            //миксин. позиционирование .humburger  вешаем на класс .hero__menu
+            a(href="").humburger.hero__menu
+                            svg.humburger__icon.humburger__icon_about
+                                use(xlink:href="assets/images/icons/sprite/sprite.svg#hamburger")
+
+        .hero__title
+            .section-title
+                svg.section-title__pic
+                    use(xlink:href="assets/images/icons/sprite/sprite.svg#portfolio_header")
+                
+            //миксин. позиционирование для элемента .hero__user //блок .user без позиционирования
+            .hero__user.user
+                .user__pic
+                    img.user__pic-img(src="assets/images/elem/user.png", alt="")
+                .user__info
+                    .user__name Владимир Астахов
+                    .user__data Личный сайт разработчика
+
+        //миксин. позиционирование .hero__arrow  а отображение через класс .arrow__down
+        .hero__arrow.arrow__down
+            a.hero__arrow-link(href="#my-works")
+                svg.arrow__icon
+                    use(xlink:href="assets/images/icons/sprite/sprite.svg#arrow_down")
+
+    section.section.my-works
+        a.my-works__anchor(name="my-works")
+
+
+    section.section.about-me
+
+    footer.footer 
+        .footer__row
+            .footer__col
+                .foter__menu
+                    //можно и без nav , только со списком. Но он нужен для семантики
+                    //nav.menu сделать миксином и использовать в полноэкранном меню, для стилизации использовать nav.menu.menu_vertical . но зависимость как исключение
+                    nav.menu
+                        ul.menu__list
+                            - var i = 0
+                            - for( i ; i < navItemsFooter.length; i++)
+                                li.menu__item
+                                    a(href=`${navItemsFooter[i].href}`).menu__link=navItemsFooter[i].name
+            .footer__col
+                .footer__social
+                    //модификатор .socials_rounded
+                    ul.socials.socials_rounded
+                        li.socials__item
+                            a.socials__link(href="https://vk.com/id431828997")
+                                svg.socials__icon.socials__icon_footer
+                                    use(xlink:href="assets/images/icons/sprite/sprite.svg#vk")
+                        li.socials__item
+                            a.socials__link(href="https://github.com/bermitti/gulp-build") 
+                                svg.socials__icon.socials__icon_footer      
+                                    use(xlink:href="assets/images/icons/sprite/sprite.svg#github")                             
+                        li.socials__item
+                            a.socials__link(href="#")
+                                svg.socials__icon.socials__icon_footer
+                                    use(xlink:href="assets/images/icons/sprite/sprite.svg#in")
+
+        .footer__row
+            .footer__col
+                .footer__text
+                    p Я веб-разработчик из Екатеринбурга, и этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool.
+            .footer__col
+                .footer__text.footer__text_right
+                    p © Владимир Астахов | создано в LoftSchool | 2018

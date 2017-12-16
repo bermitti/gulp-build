@@ -1,5 +1,9 @@
 @import "normalize"; //node-normalize-scss
 
+ul{
+    margin: 0;
+    padding: 0;
+}
 
 .wrapper {
     height: 100%;
@@ -7,6 +11,8 @@
 
 @import "common/welcom";
 @import "common/about";
+@import "common/svg_skill";
+//-указывать с окончанием *.scss нельзя, выдаст ошибку
 
 @import 'common/menu';
 @import 'common/technologies';

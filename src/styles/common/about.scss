@@ -54,9 +54,9 @@
     position: absolute;
 }
 .hero__arrow{
-
     display: flex;
     justify-content: center;
+    z-index: 1; //-наезжают абсолютом блоки
 }
 .arrow__down{
     padding-bottom: 70px;
@@ -67,6 +67,7 @@
     fill: rgba(255, 255, 255, 0.7);
     &:hover{
         fill: rgba(255, 255, 255, 1);
+        cursor: pointer;
     }
 }
 
@@ -142,8 +143,7 @@
     width: 100%;
 }
 .about__right-title{
-    padding: 0 190px;
-    text-align: center;
+    padding: 0 120px;
 }
 .user__right-description{
     padding: 0 30px;
@@ -155,6 +155,7 @@
 }
 .skills-row__list{
     display: flex;
+    flex-wrap: wrap;
 }
 .skill__circle{
     width: 110px;
@@ -166,4 +167,113 @@
 .map{
     height: 100vh;
     background-color: greenyellow;
+    position: relative;
+}
+.google-map{
+    height: 100%;
+    width: 100%;
+}
+
+.map-data{
+    width: 380px;
+    height: 290px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%, -50%); 
+    padding: 40px 50px;
+}
+.contacts__title{
+    text-align: center;
+}
+.contacts__row{
+    display: flex;
+
+}
+
+//-footer
+.footer{
+    background-color: rgba(55, 62, 66, 0.85);
+    &__col{
+        width: 50%;
+    }
+    &__row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid 1px rgba(241, 241, 242, 0.5);
+    padding: 10px 20px;
+    }
+    &__social{
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+.menu__list{
+    display: flex;
+    list-style: none; 
+.menu__item{
+    padding-right: 20px;
+}    
+}
+.menu__link{
+    text-decoration: none;
+    color: white;
+    &:hover{
+        color: rgb(24, 172, 24);
+    }
+}
+
+.socials_rounded>li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: solid 1px #fff;
+    background-color: transparent;
+    padding: 5px;
+    margin-left: 5px;
+    &:hover{
+        background-color: white;
+    }
+}
+//-модификатор для социалок блока футера
+.socials__icon_footer{
+    fill: rgba(252,252,252,0.5);
+    &:hover{
+        fill: black;
+    }
+}
+
+.footer__col{
+    padding: 0 10px;
+    &:last-child{
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+.footer__text{
+    color: rgba(255, 255, 255, 0.7);
+}
+
+//-оформление заголовков
+.block-subtitle::before,.block-subtitle::after{
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 3px;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: rgba(9, 10, 10, 0.3);
+    opacity: .9;
+}
+.block-subtitle{
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    text-align: center;
 }
