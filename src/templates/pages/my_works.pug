@@ -11,7 +11,8 @@ block variables
             {'name':'Блог', 'href':'blog.html'},
             {'name':'Авторизация', 'href':'index.html'}
         ]
-    //- include ../common/slider.pug
+
+    //- include ../common/_variables.pug
 block content
 
     section.section.hero
@@ -80,8 +81,61 @@ block content
             .slider__btns кнопки                   
 
 
-    section.section.about-me
+    section.section.section__mentions
+        .mentions
+            .mentions__header
+                .mentions__header-bg
+                    svg.mentions__header-bg-icon
+                        use(xlink:href="assets/images/icons/sprite/sprite.svg#works_header")
+                .block-title.mentions__header-title Что обо мне говорят
 
+            .mentions__opinions
+                ul.mentions__list
+                    li.mentions__item
+                        .mention
+                            .mention__quote
+                                svg.mention__quote-icon
+                                    use(xlink:href="assets/images/icons/sprite/sprite.svg#quote")                                
+                            .mention__text.text-block Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+                            .mention__owner
+                                .owner
+                                    .owner__photo
+                                        img.owner__img(src="assets/images/elem/DmKoval.png", alt="")
+                                    .owner__desc
+                                        .owner__name Ковальчук Дмитрий
+                                        .owner__position основатель Liftschool
+                    li.mentions__item
+                        .mention
+                            .mention__quote
+                                svg.mention__quote-icon
+                                    use(xlink:href="assets/images/icons/sprite/sprite.svg#quote")                                
+                            .mention__text.text-block Этот код выдержит любые испытания. Только пожалуйста, не загружается сайт на слишком старых браузерах!
+                            .mention__owner
+                                .owner
+                                    .owner__photo
+                                        img.owner__img(src="assets/images/elem/VvSb.png", alt="")
+                                    .owner__desc
+                                        .owner__name Сабанцев Владимир
+                                        .owner__position преподаватель
+
+            .mentions__feedback
+                .feedback
+                    .feedback__header
+                        .block-subtitle.block-subtitle_feadback Связаться со мной
+                    .feedback__form
+                        form(id='feedback-form', class='form', method = 'POST', action = '')
+                                .form__field
+                                    input(type='text', id='name', name ='name', placeholder='Имя', class='form__input')
+                                .form__field
+                                    input(type='email', id='email', name = 'email', placeholder='Email', class='form__input')
+                                .form__field
+                                    textarea(type='text', id='message', name = 'message', rows='3', class='form__input', resize: none, placeholder='Ваше сообщение')
+                                    
+                    .feedback__buttons
+                        button(form='feedback-form', type='submit', class='btn btn_form') Отправить
+                        button(form='feedback-form', type='reset', class='btn btn_form') Очистить
+
+            .mentions__arrow-top
 
 
     footer.footer 

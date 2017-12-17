@@ -240,6 +240,10 @@
     &:hover{
         background-color: white;
     }
+    //-Лейсан
+    &:hover .socials__icon_footer{
+        fill: black;
+    }    
 }
 //-модификатор для социалок блока футера
 .socials__icon_footer{
@@ -275,5 +279,6 @@
     box-sizing: border-box;
     display: flex;
     align-items: center;
+    justify-content: center;
     text-align: center;
 }
