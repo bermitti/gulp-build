@@ -155,41 +155,53 @@
 }
 
 //-форма для связи
-.mentions__feedback{
-    display: flex;
-    justify-content: center;
+.feedback{
+    // border: 1px solid red;
+    box-sizing: border-box;
     width: 380px;
     height: 440px;
-    border-radius: 5px;
     background: linear-gradient(180deg, #f8f7f6 0%, #afa59d 25%, #268190 75%, #26737c 100%);
-    // border: 1px solid red;
-}
-.feedback{
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid red;
-    padding: 0 20px;
+    justify-content: space-between;
+    border-radius: 10px;
     &__header{
         height: 95px;
         padding-top: 20px;
     }
-    &__form{
-        flex:1 0 auto;
-        border: 1px solid red;
-    }    
-    &__buttons{
-        height: 45px;
+    &__container{
+        width: 80%;
     }
-}
-
-.feedback__form{
-    box-sizing: border-box;
 }
 
 .form__input{
     width: 100%;
-    border: 1px solid transparent;
+    border: none;
+    padding: 10px 0; 
     border-radius: 5px;
     margin-bottom: 15px;
+}
+
+.feedback__buttons{
+    width: 100%;
+    display: flex;
+}
+.btn_form{
+    height: 45px;
+    width: 50%;
+    border: 0;
+    border-right: solid 1px #d7f0ed;
+    color: white;
+    background-color: #268c8c;
+    padding: 10px;
+    transition: 0.5s;
+    cursor: pointer;
+    &:last-child{
+        border: 0;
+    }
+    &:hover{
+        background-color: #26bbaa;
+    }
 }

@@ -120,20 +120,21 @@ block content
 
             .mentions__feedback
                 .feedback
-                    .feedback__header
-                        .block-subtitle.block-subtitle_feadback Связаться со мной
-                    .feedback__form
-                        form(id='feedback-form', class='form', method = 'POST', action = '')
-                                .form__field
-                                    input(type='text', id='name', name ='name', placeholder='Имя', class='form__input')
-                                .form__field
-                                    input(type='email', id='email', name = 'email', placeholder='Email', class='form__input')
-                                .form__field
-                                    textarea(type='text', id='message', name = 'message', rows='3', class='form__input', resize: none, placeholder='Ваше сообщение')
-                                    
+                    .feedback__container
+                        .feedback__header
+                            .block-subtitle.block-subtitle_feadback Связаться со мной
+                        .feedback__form
+                            form(id='feedback-form', class='form', method = 'POST', action = '')
+                                    .form__field
+                                        input(type='text', id='name', name ='name', placeholder='Имя', class='form__input')
+                                    .form__field
+                                        input(type='email', id='email', name = 'email', placeholder='Email', class='form__input')
+                                    .form__field
+                                        textarea(type='text', id='message', name = 'message', rows='5', class='form__input', resize: none, placeholder='Ваше сообщение')
+                                        
                     .feedback__buttons
-                        button(form='feedback-form', type='submit', class='btn btn_form') Отправить
-                        button(form='feedback-form', type='reset', class='btn btn_form') Очистить
+                        button(form='feedback-form', type='submit', class='btn_form') Отправить
+                        button(form='feedback-form', type='reset', class='btn_form') Очистить
 
             .mentions__arrow-top
 
