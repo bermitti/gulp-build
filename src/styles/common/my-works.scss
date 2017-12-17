@@ -158,8 +158,6 @@
 .feedback{
     // border: 1px solid red;
     box-sizing: border-box;
-    width: 380px;
-    height: 440px;
     background: linear-gradient(180deg, #f8f7f6 0%, #afa59d 25%, #268190 75%, #26737c 100%);
     overflow: hidden;
     display: flex;
@@ -168,18 +166,18 @@
     justify-content: space-between;
     border-radius: 10px;
     &__header{
-        height: 95px;
+        height: 75px;
         padding-top: 20px;
     }
     &__container{
-        width: 80%;
+        padding: 15px 20px;
     }
 }
 
 .form__input{
-    width: 100%;
+    width: 300px;
     border: none;
-    padding: 10px 0; 
+    padding: 10px; 
     border-radius: 5px;
     margin-bottom: 15px;
 }
