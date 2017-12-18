@@ -93,6 +93,9 @@
         width: 100%;
         padding: 20px 80px 20px; 
     }
+    &-title{
+        padding-top: 20px;
+    }
 }
 .triangle_fill_white{
     fill: #efeee9;
@@ -143,7 +146,7 @@
     width: 100%;
 }
 .about__right-title{
-    padding: 0 120px;
+    padding: 20px 120px;
 }
 .user__right-description{
     padding: 0 30px;
@@ -156,11 +159,20 @@
 .skills-row__list{
     display: flex;
     flex-wrap: wrap;
+    list-style: none;
 }
 .skill__circle{
     width: 110px;
     height: 110px;
     fill: rgb(80, 173, 250);
+}
+.skill{
+    position: relative;
+    &__title{
+        position: absolute;
+        top: 39%;
+        left: 30%;
+    }
 }
 
 //-cтили для секции .map
