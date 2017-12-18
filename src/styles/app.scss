@@ -4,11 +4,11 @@ ul{
     margin: 0;
     padding: 0;
 }
-
 .wrapper {
     height: 100%;
 }
 
+@import "common/fonts";
 @import "common/welcom";
 @import "common/about";
 @import "common/svg_skill";
