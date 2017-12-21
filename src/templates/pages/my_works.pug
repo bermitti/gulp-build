@@ -35,10 +35,16 @@ block content
                             svg.socials__icon.socials__icon_about
                                 use(xlink:href="assets/images/icons/sprite/sprite.svg#in")
 
-            //миксин. позиционирование .humburger  вешаем на класс .hero__menu
-            a(href="").humburger.hero__menu
-                            svg.humburger__icon.humburger__icon_about
-                                use(xlink:href="assets/images/icons/sprite/sprite.svg#hamburger")
+            //- //миксин. позиционирование .humburger  вешаем на класс .hero__menu
+            //- a(href="").humburger.hero__menu
+            //-                 svg.humburger__icon.humburger__icon_about
+            //-                     use(xlink:href="assets/images/icons/sprite/sprite.svg#hamburger")
+            .humburger.hero__menu
+                    a.nav-toggle(href="#")
+                        span.nav-toggle__button#nav-toggle__button-1
+                        span.nav-toggle__button#nav-toggle__button-2
+                        span.nav-toggle__button#nav-toggle__button-3
+
 
         .hero__title
             .section-title

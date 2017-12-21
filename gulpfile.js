@@ -50,7 +50,8 @@ const webpackConfig = require('./webpack.config.js');
             src: 'src/templates/**/*.pug',
         },
         styles: {
-            src: 'src/styles/**/*.scss', 
+            self: 'src/styles/',
+            src: 'src/styles/app.scss', 
             dest: 'build/assets/styles/'
         },    
         images: {
@@ -139,7 +140,7 @@ function styles() {
                 };
                 })
             }))
-            .pipe(gP.imagemin({use: [pngquant()]}))
+            //  .pipe(gP.imagemin({use: [pngquant()]}))
             .pipe(gulp.dest(paths.images.dest))
     };
 
@@ -206,7 +207,7 @@ function styles() {
 
 // watch галповский вотчер, (за чем следить, какую фун-ю вызывать)
     function watch() {
-        gulp.watch(paths.styles.src, styles);
+        gulp.watch(paths.styles.self+'**/*.scss', styles);
         gulp.watch(paths.templates.src, templates);
         gulp.watch(paths.images.src, images);
         gulp.watch(paths.scripts.src, scripts);

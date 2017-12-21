@@ -1,14 +1,23 @@
-@import "normalize"; //node-normalize-scss
 
-ul{
-    margin: 0;
-    padding: 0;
-}
-.wrapper {
-    height: 100%;
-}
+//подключение normalize через плагин node-normalize-scss
+@import "normalize"; 
 
-@import "common/fonts";
+//подключение переменных
+@import "base/_variables";
+//подключение миксинов
+@import "base/_mixins";
+//подключение базовых стилей
+@import "base/_base";
+//подключение шрифтов
+@import "base/fonts";
+
+//подключение стилей для иконок соц.сетей
+@import "common/_social";
+//подключение стилей для кнопки меню
+@import "common/_humburger";
+
+
+
 @import "common/welcom";
 @import "common/about";
 @import "common/svg_skill";
