@@ -65,14 +65,23 @@ block content
                 svg.arrow__icon
                     use(xlink:href="assets/images/icons/sprite/sprite.svg#arrow_down")
 
+        //-треугольники позициoнируем position: absolute  
+        .my-works__triangls.triangles_blog
+            .my-works__triangle_works
+                svg.triangle.triangle_fill_about-left
+                    use(xlink:href="assets/images/icons/sprite/sprite.svg#my_about_bg_left")
+            .my-works__triangle_works
+                svg.triangle.triangle_fill_about-right
+                    use(xlink:href="assets/images/icons/sprite/sprite.svg#my_about_bg_right")
+
     section.section.about
         a.about__anchor(name="about")
         .about__left
-            //треугольники позицианируем position: absolute   -top
-            .about__triangle.about__triangle_left
-                //название класса .triangle_fill_white только когда меняем одно свойство!
-                svg.triangle.triangle_fill_white
-                    use(xlink:href="assets/images/icons/sprite/sprite.svg#my_about_bg_left")
+            //- //треугольники позициoнируем position: absolute   -top
+            //- .about__triangle.about__triangle_left
+            //-     //название класса .triangle_fill_white только когда меняем одно свойство!
+            //-     svg.triangle.triangle_fill_white
+            //-         use(xlink:href="assets/images/icons/sprite/sprite.svg#my_about_bg_left")
             .about__left-title
                 .block-title Обо мне
 
@@ -88,11 +97,11 @@ block content
                         p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите,как тут всё классно и красиво!
 
         .about__right
-            //треугольники позицианируем position: absolute   -top
-            .about__triangle.about__triangle_right
-                //название класса .triangle_fill_beige только когда меняем одно свойство!
-                svg.triangle.triangle_fill_beige
-                    use(xlink:href="assets/images/icons/sprite/sprite.svg#my_about_bg_right")
+            //- //треугольники позициoнируем position: absolute   -top
+            //- .about__triangle.about__triangle_right
+            //-     //название класса .triangle_fill_beige только когда меняем одно свойство!
+            //-     svg.triangle.triangle_fill_beige
+            //-         use(xlink:href="assets/images/icons/sprite/sprite.svg#my_about_bg_right")
             //использование миксина (.block-subtitle)
             .about__right-title.block-subtitle Чем я могу быть вам полезен   
             .user__right-description.text-block 
@@ -196,7 +205,7 @@ block content
     footer.footer 
         .footer__row
             .footer__col
-                .foter__menu
+                .footer__menu
                     //можно и без nav , только со списком. Но он нужен для семантики
                     //nav.menu сделать миксином и использовать в полноэкранном меню, для стилизации использовать nav.menu.menu_vertical . но зависимость как исключение
                     nav.menu
