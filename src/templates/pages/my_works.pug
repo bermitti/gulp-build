@@ -17,8 +17,22 @@ block content
 
     section.section.hero
         a.my-works__anchor(name="my-works-header")
+        //-в подключаемый модуль pug
+        .modal-window
+            .modal-window__left
+            .modal-window__right
+            .modal-window__nav
+                ul.modal-window__list
+                    li.modal-window__item
+                        a.modal-window__link(href="my_works.html") Мои работы
+                    li.modal-window__item
+                        a.modal-window__link(href="blog.html") Обо мне
+                    li.modal-window__item
+                        a.modal-window__link(href="about.html") Блог
+                    li.modal-window__item
+                        a.modal-window__link(href="index.html") Авторизация
         .hero__header
-            //позиционирование внутренних элементов(блоков)
+            //-позиционирование внутренних элементов(блоков)
             .hero__socials
                 //блок без позиционирования. сделать потом миксином.
                 ul.socials
@@ -39,19 +53,18 @@ block content
             //- a(href="").humburger.hero__menu
             //-                 svg.humburger__icon.humburger__icon_about
             //-                     use(xlink:href="assets/images/icons/sprite/sprite.svg#hamburger")
-            .humburger.hero__menu
-                    a.nav-toggle(href="#")
-                        span.nav-toggle__button#nav-toggle__button-1
-                        span.nav-toggle__button#nav-toggle__button-2
-                        span.nav-toggle__button#nav-toggle__button-3
-
+            .hero__humburger
+                    a.humburger(href="#")
+                        span.humburger__line
+                        span.humburger__line
+                        span.humburger__line
 
         .hero__title
             .section-title
                 svg.section-title__pic
                     use(xlink:href="assets/images/icons/sprite/sprite.svg#portfolio_header")
                 
-            //миксин. позиционирование для элемента .hero__user //блок .user без позиционирования
+            //-миксин. позиционирование для элемента .hero__user //блок .user без позиционирования
             .hero__user.user
                 .user__pic
                     img.user__pic-img(src="assets/images/elem/user.png", alt="")
@@ -59,7 +72,7 @@ block content
                     .user__name Владимир Астахов
                     .user__data Личный сайт разработчика
 
-        //миксин. позиционирование .hero__arrow  а отображение через класс .arrow__down
+        //-миксин. позиционирование .hero__arrow  а отображение через класс .arrow__down
         .hero__arrow.arrow__down
             a.hero__arrow-link(href="#my-works")
                 svg.arrow__icon

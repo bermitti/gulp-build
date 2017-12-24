@@ -9,7 +9,7 @@ html(lang="ru")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
         //-заменить на стили для каждой страницы
-        link(rel="stylesheet", href="/assets/styles/app.min.css") 
+        link(rel="stylesheet", href="./assets/styles/app.min.css") 
         //-будем подставлять сюда заголовки #(title) для каждой страницы
         title #{title}
         //- script(async, defer, src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPNNwBKiezkzEec7PFI6X3A-5xNHA6dJ4&callback=initMap", type="text/javascript")
@@ -19,6 +19,9 @@ html(lang="ru")
             block content
             //-вставка из каждого файла
             
-            include common/menu.pug
+
+
 
         //- script(async defer src="https://maps.googleapis.com/maps/api/js?callback=initMap") 
+
+        script(src='assets/scripts/bundle.js' defer)

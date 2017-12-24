@@ -1,21 +1,34 @@
-//стили для кнопки меню - 'humburger'
-// .humburger{
-//     width: 40px;
-//     height: 36px;
-// }
-.nav-toggle{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+
+//-стили для кнопки меню - 'humburger'
+
+.hero__humburger{
+    z-index: 101;
+    &:hover{
+        cursor: pointer;
+    }
+}
+.humburger{
     width: 40px;
     height: 36px;
-    &__button{
-        display: block;
-        width: inherit; //можно менять только в .nav-toggle
-        height: 5px;
-        border-radius: 2px;
-        padding: 1px;
-        background: rgb(255, 255, 255);
+    z-index: 101; //-для модального окна
+}
+.humburger__line{
+    width: inherit;
+    height: 5px;
+    background: rgb(255, 255, 255);
+    display: block;
+    margin: 8px auto;
+    transition: all 0.3s ease-in-out;
+}
 
-    }
+
+
+.is-active .humburger__line:nth-child(2){      //-потомок класса .is-active
+    opacity: 0;
+}
+.is-active > .humburger__line:nth-child(1){    //-потомок класса .is-active
+    transform: translateY(13px) rotate(45deg);
+}
+.is-active .humburger__line:nth-child(3){
+    transform: translateY(-13px) rotate(-45deg);
 }

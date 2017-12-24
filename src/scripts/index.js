@@ -6,9 +6,10 @@
 
 //-флиппер на странице авторизации
 const flipper = require('./modules/flipperRotate'); //подключаем модуль flipperRotate
-
-
-
+const humburgerButton = require('./modules/humburgerButton');  //подключаем модуль flipperRotate
+const modalWindow = require('./modules/modalWindow');
 
 //-вызов функций
 flipper();
+humburgerButton();
+modalWindow();

@@ -1,0 +1,73 @@
+.modal-window__nav{
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 101;
+}
+.modal-window__left{
+    background-color: rgba(0, 191, 165, 0.87);
+    height: 100vh;
+    width: 50%;
+    position: fixed;
+    z-index: 100;
+    left: -100%;
+    transition: all 0.4s ease-in-out;
+}
+.modal-window__right{
+    background-color: rgba(0, 191, 165, 0.87); 
+    height: 100vh;
+    width: 50%;   
+    position: fixed;
+    z-index: 100;
+    right: -100%;
+    transition: all 0.4s ease-in-out;
+}
+.modal-window__list{
+    display: none;     //-скрываю текст меню
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 20s ease-in-out;
+}
+.modal-window__link{
+    font-size: 49px;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover{
+        color: rgba(252, 252, 252, 1);
+    }
+    &:hover::before{
+        content: "";
+        display: block;
+        width: 20px;
+        height: 5px;
+        margin-left: 5px;
+        margin-right: 5px;
+        background-color: rgba(252, 252, 252, 1);
+    }
+    &:hover::after{
+        content: "";
+        display: block;
+        width: 20px;
+        height: 5px;
+        margin-left: 5px;
+        margin-right: 5px;
+        background-color: rgba(252, 252, 252, 0.87);
+    }
+}
+
+//-
+.modal-window_active .modal-window__list{
+    display: block;
+}
+.modal-window_active > .modal-window__right{
+    right: 0%;
+}
+.modal-window_active > .modal-window__left{
+    left: 0%;
+}

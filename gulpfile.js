@@ -59,6 +59,7 @@ const webpackConfig = require('./webpack.config.js');
             dest: 'build/assets/images/'
         },
         scripts: {
+            self: 'src/scripts/',
             src: 'src/scripts/index.js', //
             dest: 'build/assets/scripts/'
         },
@@ -210,7 +211,7 @@ function styles() {
         gulp.watch(paths.styles.self+'**/*.scss', styles);
         gulp.watch(paths.templates.src, templates);
         gulp.watch(paths.images.src, images);
-        gulp.watch(paths.scripts.src, scripts);
+        gulp.watch(paths.scripts.self+'**/*.js', scripts);
         gulp.watch(paths.svg.src, svgSpriteBuild);
         gulp.watch(paths.fonts.src, fonts);
     };

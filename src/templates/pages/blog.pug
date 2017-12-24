@@ -15,6 +15,20 @@ block content
 
 
     section.section.hero
+        //-в подключаемый модуль pug//Модальное окно
+        .modal-window
+            .modal-window__left
+            .modal-window__right
+            .modal-window__nav
+                ul.modal-window__list
+                    li.modal-window__item
+                        a.modal-window__link(href="my_works.html") Мои работы
+                    li.modal-window__item
+                        a.modal-window__link(href="blog.html") Обо мне
+                    li.modal-window__item
+                        a.modal-window__link(href="about.html") Блог
+                    li.modal-window__item
+                        a.modal-window__link(href="index.html") Авторизация
         .hero__header
             //позиционирование внутренних элементов(блоков)
             .hero__socials
@@ -33,10 +47,16 @@ block content
                             svg.socials__icon.socials__icon_about
                                 use(xlink:href="assets/images/icons/sprite/sprite.svg#in")
 
-            //миксин. позиционирование .humburger  вешаем на класс .hero__menu
-            a(href="").humburger.hero__menu
-                            svg.humburger__icon.humburger__icon_about
-                                use(xlink:href="assets/images/icons/sprite/sprite.svg#hamburger")
+            //- //миксин. позиционирование .humburger  вешаем на класс .hero__menu
+            //- a(href="").humburger.hero__menu
+            //-                 svg.humburger__icon.humburger__icon_about
+            //-                     use(xlink:href="assets/images/icons/sprite/sprite.svg#hamburger")
+
+            .hero__humburger
+                    a.humburger(href="#")
+                        span.humburger__line
+                        span.humburger__line
+                        span.humburger__line
 
         .hero__title
             .blog-intro

@@ -15,19 +15,24 @@
     padding-right: 15px;
 }
 .btn-login{
+    cursor: pointer;
     border-color: white;
     border: 1px solid white;
     border-radius: 10px;
     color: white;
     background-color: transparent;
     padding: 10px;
-    transition:all 1s ease-in-out;
+    transition:all 0.5s ease-in-out;
     &:hover{
         background-color: white;
         border-color: transparent;
         color: #00bfa5;
     }
+    &_hidden{
+        transform: translateY(-1000px); //-кнопка авторизации
+    }
 }
+
 //-Лейсан. Свойство убирающее внещние гран. при нажатии
 button.btn-login:focus {
     outline: none;
@@ -39,16 +44,7 @@ button.btn-login:focus {
     justify-content: center;
     align-items: center;
 }
-// .flipper{
-//     overflow: hidden;  //с ним не работает флипп
-// }
-.flipper__front{
-    //-растягиваю отступами в блоке кнопок width: 380px;
-    height: 395px;
-    background-color: rgba(252, 252, 252, 0.85);
-    display: flex;
-    flex-direction: column;
-}
+
 
 //-убрать в отдельный файл
 .user{
@@ -85,13 +81,19 @@ button.btn-login:focus {
     }
 }
 
-//стили для флиппера авторизации
-.flipper__back{
-    background-color: rgba(252,252,252,0.85);
+//плашка авторизации
+.welcome__login-form{
     display: flex;
-    flex-direction: column;
+    justify-content: center;
 }
-
+//плашка авторизации
+.form__row{
+    display: flex;
+    justify-content: center;
+}
+.form__line-title{
+    text-align: center;
+}
 //форма авторизации, кнопки на полширины
 .nav__item_welcome-back{
     width: 50%;
@@ -126,8 +128,6 @@ button.btn-login:focus {
     color: white;
 }
 
-
-
 .welcome__footer {
     height: 90px;
     display: flex;
@@ -136,99 +136,3 @@ button.btn-login:focus {
     color: white;
 }
 
-//стили для флипера
-// .welcome__flipper {
-//     perspective: 1000;
-//     }
-     
-//     .welcome__flipper:hover .flipper, .welcome__flipper.hover .flipper {
-//     transform: rotateY(180deg);
-//     }
-     
-//     .welcome__flipper, .front, .back {
-//     width: 320px;
-//     height: 480px;
-//     }
-//     .flipper {
-//     transition: 0.6s;
-//     transform-style: preserve-3d;
-     
-//     position: relative;
-//     }
-//     .front, .back {
-//     backface-visibility: hidden;
-     
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     }
-//     .front {
-//     z-index: 2;
-//     }
-//     .back {
-//     transform: rotateY(180deg);
-//     }
-// .welcome__flipper{
-//     perspective: 1200;//
-//     transform-style: preserve-3d;//
-// }
-// // // .flipper{
-// // //     position: relative; //
-// // //     width: 320px;////
-// // //     height: 280px;////
-// // //     transform-style: preserve-3d;
-// // //     transition: .7s linear;
-// // //     overflow: inherit; //1
-// // // }
-// // // .flipper__front,.flipper__back{
-// // //     backface-visibility: hidden;
-// // //     position: absolute;
-// // //     border-radius: 10px; //1
-// // //     overflow: hidden;    //1
-// // // }
-// // // .flipper__front{
-// // //     z-index: 2;
-// // //     transform: rotateY(0deg);
-// // // }
-// // // .flipper__back{
-// // //     transform: rotateY(-180deg);
-// // // }
-// // // .welcome__flipper:hover .flipper{
-// // //     transform: rotateY(180deg);
-// // // }
-
-.flipper {
-    transition: 1s;
-    transform-style: preserve-3d;
-    position: relative;
-}
-
-.flipper_back {
-    transform: rotateY(180deg);
-}
-
-.flipper__front,
-.flipper__back {
-    background-color: rgba(#fcfcfc, .85);
-    border-radius: 5px;
-    overflow: hidden;
-    backface-visibility: hidden;
-}
-
-// .flipper__front {
-//     position: relative;
-//     z-index: 2;
-// }
-
-.flipper__back {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    transform: rotateY(180deg);
-    padding-top: 30px;
-}
-.welcome__flipper:hover .flipper{
-    transform: rotateY(180deg);
-}
