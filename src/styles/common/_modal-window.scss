@@ -3,6 +3,7 @@
     width: 100%;
     position: fixed;
     z-index: 101;
+    display: none;
 }
 .modal-window__left{
     background-color: rgba(0, 191, 165, 0.87);
@@ -70,4 +71,7 @@
 }
 .modal-window_active > .modal-window__left{
     left: 0%;
+}
+.modal-window_active > .modal-window__nav{
+    display: block;
 }
