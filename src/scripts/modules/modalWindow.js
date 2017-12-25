@@ -10,7 +10,7 @@ module.exports = function () {
         textList.classList.toggle('modal-window_active')
     }
 
-    if (button) {
+    if (button && textList) {
         button.addEventListener('click', function (e) {
             modalToogle(e); 
          });

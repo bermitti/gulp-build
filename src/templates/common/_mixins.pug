@@ -1,0 +1,16 @@
+mixin skillsBlock
+    ul.skills
+        //-перебор строк [ 'Frontend' , [ 'HTML5', 'CSS3', 'JavaScript & JQuery' ] ]
+        each skill in skills  
+            li.skills-list__item
+                //-написали заголовок строки 'Frontend'
+                .skills-row__title #{skill.name} 
+                ul.skills-row__list
+                    each item in skill.items
+                        li.skills-row__item 
+                            svg.circles(viewbox='0 0 110 110')
+                                circle.circle__first(r="45" cx="50%" cy="50%" fill="none")
+                                //-data-percents='15'
+                                circle.circle__second.circle-15(r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)"  stroke-dasharray=item.percentage * 3.16 + '316')
+                            .skills-row__item-title #{item.name}                                              
+    //-circle.circle__second.circle-15(r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)" style={opacity: item.percentage / 100} stroke-dasharray= item.percentage * 3.16 + ' 316')

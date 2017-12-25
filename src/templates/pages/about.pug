@@ -11,6 +11,12 @@ block variables
             {'name':'Блог', 'href':'blog.html'},
             {'name':'Авторизация', 'href':'index.html'}
         ]
+    -
+        var skills = [
+            { name: 'Frontend' , items: [ {name: 'HTML5', percentage:70}, {name: 'CSS3', percentage:70}, {name: 'JavaScript & JQuery', percentage:50} ] },
+            { name: 'Backend', items: [ {name: 'PHP', percentage: 20}, {name: 'MySQL', percentage: 20}, {name: 'Node.js & npm', percentage: 20}, {name: 'Mongo.db', percentage: 20} ] },
+            { name: 'Workflow', items: [ {name: 'Git', percentage: 50}, {name: 'Gulp', percentage: 50}, {name: 'Webpack', percentage: 20} ] }
+        ]
 
 block content
     //- //-инклюды это аналог import в CSS
@@ -26,9 +32,9 @@ block content
                     li.modal-window__item
                         a.modal-window__link(href="my_works.html") Мои работы
                     li.modal-window__item
-                        a.modal-window__link(href="blog.html") Обо мне
+                        a.modal-window__link(href="about.html") Обо мне
                     li.modal-window__item
-                        a.modal-window__link(href="about.html") Блог
+                        a.modal-window__link(href="blog.html") Блог
                     li.modal-window__item
                         a.modal-window__link(href="index.html") Авторизация
         .hero__header
@@ -127,17 +133,17 @@ block content
             .user__right-description.text-block 
                 p Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать не сложные задачи на Backend. Но давайте по порядку.
             .about__right-content       
-                //- ul.skills-list
-                //-     each item in ['Frontend', 'Backend', 'Workflow']
-                //-         li.skills-list__item
-                //-             .skills-row
-                //-                 .skills-row__title #{item}
-                //-                 ul.skills-row__list
-                //-                     li.skills-row__item
-                //-                         .skill(data-percents='73')
-                //-                             svg.skill__circle
-                //-                             .skill__title
-                ul.skills-list
+                //-ul.skills-list
+                    each item in ['Frontend', 'Backend', 'Workflow']
+                        li.skills-list__item
+                            .skills-row
+                                .skills-row__title #{item}
+                                ul.skills-row__list
+                                    li.skills-row__item
+                                        .skill(data-percents='73')
+                                            svg.skill__circle
+                                            .skill__title
+                //-ul.skills-list
                     li.skills-list__item
                             .skills-row
                                 .skills-row__title Frontend
@@ -199,7 +205,25 @@ block content
                                         .skill(data-percents='50')
                                             svg.skill__circle
                                                 use(xlink:href="assets/images/icons/sprite/sprite.svg#EllipseGrey")
-                                            .skill__title Webpack 
+                                            .skill__title Webpack
+                ul.skills
+                    //-перебор строк [ 'Frontend' , [ 'HTML5', 'CSS3', 'JavaScript & JQuery' ] ]
+                    each skill in skills  
+                        li.skills-list__item
+                            //-написали заголовок строки 'Frontend'
+                            .skills-row__title #{skill.name} 
+                            ul.skills-row__list
+                                each item in skill.items
+                                    li.skills-row__item 
+                                        svg.circles(viewbox='0 0 110 110')
+                                            circle.circle__first(r="45" cx="50%" cy="50%" fill="none")
+                                            //-data-percents='15'
+                                            circle.circle__second.circle-15(r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)"  stroke-dasharray=item.percentage * 3.16 + '316')
+                                        .skills-row__item-title #{item.name}                                              
+                //-circle.circle__second.circle-15(r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)" style={opacity: item.percentage / 100} stroke-dasharray= item.percentage * 3.16 + ' 316')
+
+
+                                            
     section.section.map
         .google-map
             <iframe src="https://snazzymaps.com/embed/35731" width="100%" height="100%" style="border:none;"></iframe>
