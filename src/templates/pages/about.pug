@@ -13,9 +13,9 @@ block variables
         ]
     -
         var skills = [
-            { name: 'Frontend' , items: [ {name: 'HTML5', percentage:70}, {name: 'CSS3', percentage:70}, {name: 'JavaScript & JQuery', percentage:50} ] },
-            { name: 'Backend', items: [ {name: 'PHP', percentage: 20}, {name: 'MySQL', percentage: 20}, {name: 'Node.js & npm', percentage: 20}, {name: 'Mongo.db', percentage: 20} ] },
-            { name: 'Workflow', items: [ {name: 'Git', percentage: 50}, {name: 'Gulp', percentage: 50}, {name: 'Webpack', percentage: 20} ] }
+            { name: 'Frontend' , items: [ {name: 'HTML5', percentage:75}, {name: 'CSS3', percentage:70}, {name: 'JavaScript & JQuery', percentage:50} ] },
+            { name: 'Backend', items: [ {name: 'PHP', percentage: 20}, {name: 'MySQL', percentage:40}, {name: 'Node.js & npm', percentage: 25}, {name: 'Mongo.db', percentage: 20} ] },
+            { name: 'Workflow', items: [ {name: 'Git', percentage: 70}, {name: 'Gulp', percentage: 65}, {name: 'Webpack', percentage: 20} ] }
         ]
 
 block content
@@ -218,7 +218,7 @@ block content
                                         svg.circles(viewbox='0 0 110 110')
                                             circle.circle__first(r="45" cx="50%" cy="50%" fill="none")
                                             //-data-percents='15'
-                                            circle.circle__second.circle-15(r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)"  stroke-dasharray=item.percentage * 3.16 + '316')
+                                            circle.circle__second(r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)" style={opacity: item.percentage / 100} stroke-dasharray= (item.percentage * 3.16 + ' 316'))
                                         .skills-row__item-title #{item.name}                                              
                 //-circle.circle__second.circle-15(r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)" style={opacity: item.percentage / 100} stroke-dasharray= item.percentage * 3.16 + ' 316')
 

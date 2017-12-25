@@ -6,6 +6,7 @@
     background-position: center;
     display: flex;
     flex-direction: column;
+    position: relative; //-для паралакса
 }
 .welcome__header {
     height: 90px;

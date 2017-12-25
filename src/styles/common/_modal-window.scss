@@ -39,6 +39,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    white-space: nowrap; //-запрет переноса слов на другую строку
     &:hover{
         color: rgba(252, 252, 252, 1);
     }
