@@ -16,7 +16,10 @@ block content
         .welcome__parallaxLs.parallaxLs
             - for (var i = 1; i <= 10; i++)
                 .parallaxLs__layer
-                    img(src="./assets/images/parallax/layer' + [i] + '.png'", alt="", class = '.parallaxLs__image.parallaxLs__image_' + [i])
+                    //-ВАЖНО! ковычки для видемых вложений одинаковые ' .. ' +[i]+ ' .. '
+                    //-ВАЖНО! классы в строках пишем без точек class = '   parallaxLs__image'
+                    //-как вставить 'data-speed='+[i], 
+                    img(src=`./assets/images/parallax/layer${i}.png`, data-speed=`${i}`, alt='', class ='parallaxLs__image parallaxLs__image_' + [i])
 
         header.welcome__header
             .welcome__login

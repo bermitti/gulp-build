@@ -19,3 +19,11 @@
         @content;
     }
 }
+
+//-подключение
+//-  .класс {
+//-      @include tablets{
+//-            display: none;
+//-         }
+//-   }
+
