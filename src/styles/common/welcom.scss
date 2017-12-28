@@ -6,7 +6,10 @@
     background-position: center;
     display: flex;
     flex-direction: column;
-    position: relative; //-для паралакса
+    position: relative; 
+    &__login{
+        position: absolute; 
+    }
 }
 .welcome__header {
     height: 90px;
@@ -30,11 +33,10 @@
         color: #00bfa5;
     }
     &_hidden{
-        transform: translateY(-1000px); //-кнопка авторизации
+        transform: translateY(-1000px); 
     }
 }
 
-//-Лейсан. Свойство убирающее внещние гран. при нажатии
 button.btn-login:focus {
     outline: none;
  }
@@ -46,8 +48,6 @@ button.btn-login:focus {
     align-items: center;
 }
 
-
-//-убрать в отдельный файл
 .user{
     display: flex;
     flex-direction: column;
@@ -82,12 +82,10 @@ button.btn-login:focus {
     }
 }
 
-//плашка авторизации
 .welcome__login-form{
     display: flex;
     justify-content: center;
 }
-//плашка авторизации
 .form__row{
     display: flex;
     justify-content: center;
@@ -95,18 +93,15 @@ button.btn-login:focus {
 .form__line-title{
     text-align: center;
 }
-//форма авторизации, кнопки на полширины
 .nav__item_welcome-back{
     width: 50%;
 }
-//форма авторизации, на всю ширину родителя
 .nav__link_welcome-back{
     width: 100%;
     text-align: center;
 }
 
 
-//-убрать в отдельный файл
 .nav__list{
     display: flex;
     justify-content: space-between;

@@ -1,5 +1,4 @@
 
-//-footer
 .footer{
     background-color: rgba(55, 62, 66, 0.85);
     &__row{
@@ -56,12 +55,10 @@
     &:hover{
         background-color: white;
     }
-    //-Лейсан
     &:hover .socials__icon_footer{
         fill: black;
     }    
 }
-//-модификатор для социалок блока футера
 .socials__icon_footer{
     width: 24px;
     height: 18px;

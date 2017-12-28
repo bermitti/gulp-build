@@ -1,17 +1,13 @@
-// 'use strict'
+'use strict'
 
-// // let welcome = require ('./menu');  //подключаем модуль menu
-
-// // menu('index');
-
-//-флиппер на странице авторизации
-const flipper = require('./modules/flipperRotate'); //подключаем модуль flipperRotate
-const humburgerButton = require('./modules/humburgerButton');  //подключаем модуль flipperRotate
+const flipper = require('./modules/flipperRotate'); 
+const humburgerButton = require('./modules/humburgerButton');  
 const modalWindow = require('./modules/modalWindow');
-const parallax = require('./modules/parallax');
+const parallax = require('./modules/parallax');  
+const preloader = require('./modules/preloader'); 
 
-//-вызов функций
 flipper();
 humburgerButton();
 modalWindow();
 parallax();
+preloader();

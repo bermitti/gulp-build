@@ -24,7 +24,7 @@
     transition: all 0.4s ease-in-out;
 }
 .modal-window__list{
-    display: none;     //-скрываю текст меню
+    display: none;     
     position: fixed;
     top: 50%;
     left: 50%;
@@ -39,7 +39,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    white-space: nowrap; //-запрет переноса слов на другую строку
+    white-space: nowrap; 
     &:hover{
         color: rgba(252, 252, 252, 1);
     }

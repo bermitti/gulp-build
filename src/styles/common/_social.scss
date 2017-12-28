@@ -17,10 +17,6 @@
     &__icon{
         width: 30px;
         height: 24px;
-        // fill: #00bfa5;
-        // &:hover{
-        //     fill: #0e9289;
-        // }
         @include phones{
             width: 26px;
             height: 20px;
@@ -28,7 +24,6 @@
     }
 }
 
-//-модификатор svg  для страницы welcome
 .socials__icon_welcome{
     fill: #00bfa5;
     &:hover{

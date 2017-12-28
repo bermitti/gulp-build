@@ -1,7 +1,6 @@
-//-расширяет(наследует) исходный шаблон от tamplate.pug
 extends ../template
 
-//-блок переменных, подставляем переменнуб title в наследуемый шаблон
+
 block variables
     - var title = 'Мои работы'
     - 
@@ -12,12 +11,11 @@ block variables
             {'name':'Авторизация', 'href':'index.html'}
         ]
 
-    //- include ../common/_variables.pug
 block content
 
     section.section.hero
         a.my-works__anchor(name="my-works-header")
-        //-в подключаемый модуль pug
+
         .modal-window
             .modal-window__left
             .modal-window__right
@@ -32,7 +30,6 @@ block content
                     li.modal-window__item
                         a.modal-window__link(href="index.html") Авторизация
         .hero__header
-            //-позиционирование внутренних элементов(блоков)
             .hero__socials
                 //блок без позиционирования. сделать потом миксином.
                 ul.socials
@@ -48,11 +45,6 @@ block content
                         a.socials__link(href="#")
                             svg.socials__icon.socials__icon_about
                                 use(xlink:href="assets/images/icons/sprite/sprite.svg#in")
-
-            //- //миксин. позиционирование .humburger  вешаем на класс .hero__menu
-            //- a(href="").humburger.hero__menu
-            //-                 svg.humburger__icon.humburger__icon_about
-            //-                     use(xlink:href="assets/images/icons/sprite/sprite.svg#hamburger")
             .hero__humburger
                     a.humburger(href="#")
                         span.humburger__line
@@ -64,7 +56,6 @@ block content
                 svg.section-title__pic
                     use(xlink:href="assets/images/icons/sprite/sprite.svg#portfolio_header")
                 
-            //-миксин. позиционирование для элемента .hero__user //блок .user без позиционирования
             .hero__user.user
                 .user__pic
                     img.user__pic-img(src="assets/images/elem/user.png", alt="")
@@ -72,7 +63,6 @@ block content
                     .user__name Владимир Астахов
                     .user__data Личный сайт разработчика
 
-        //-миксин. позиционирование .hero__arrow  а отображение через класс .arrow__down
         .hero__arrow.arrow__down
             a.hero__arrow-link(href="#my-works")
                 svg.arrow__icon
@@ -80,7 +70,6 @@ block content
 
     section.section.my-works
         a.my-works__anchor(name="my-works")
-        //-треугольники позицианируем position: absolute   -top
         .my-works__triangls
             .my-works__triangle_works
                   svg.triangle.triangle_fill_my-works
@@ -98,7 +87,6 @@ block content
             .slider__info Инфа
             .slider__display Картинка
             .slider__btns кнопки                   
-
 
     section.section.section__mentions
         .mentions
@@ -156,7 +144,6 @@ block content
                         button(form='feedback-form', type='reset', class='btn_form') Очистить
 
             .mentions__arrow-top
-
 
     footer.footer 
         .footer__row

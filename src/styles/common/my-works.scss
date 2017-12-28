@@ -35,51 +35,8 @@
         position: absolute;
     }
 }
-//-слайдер
-.slider{
-    height: 90vh;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    background-color: grey;
-    @include tablets() {
-        height: auto;
-        flex-wrap: nowrap;
-    }
-    &__info{
-        width: 50%;
-        height: 100%;
-        background-color: rgb(252, 5, 5);
-        @include tablets() {
-            width: 100%;
-            height:300px;
-        }
-    }
-    &__display{
-        width: 50%;
-        height: 70%;
-        background-color: rgb(252, 126, 9);
-        @include tablets() {
-            width: 100%;
-            height:200px;
-            order: -10;
-        }
-    }
-    &__btns{
-        width: 50%;
-        height: 30%;
-        background-color: rgb(239, 243, 20);
-        @include tablets() {
-            width: 100%;
-            height:100px;
-        }
-    }        
-}
-
-
 
 .section__mentions{
-    // height: 100vh;
     background-image: url(../images/bg/bg-my-work.png);
     background-size: cover;
     background-position: center;
@@ -122,7 +79,6 @@
     }
 }
 .mention{
-    // width: 380px; времеено для удобства
     &__quote{
         width: 38px;
         height: 38px;
@@ -142,7 +98,6 @@
     }
 }
 .owner{
-    // border: 1px solid red;
     display: flex;
     align-items: center;
     &__photo{
@@ -159,7 +114,6 @@
 
 //-форма для связи
 .feedback{
-    // border: 1px solid red;
     box-sizing: border-box;
     background: linear-gradient(180deg, #f8f7f6 0%, #afa59d 25%, #268190 75%, #26737c 100%);
     overflow: hidden;
@@ -176,7 +130,6 @@
         padding: 15px 20px;
     }
 }
-
 .form__input{
     width: 300px;
     border: none;
@@ -187,7 +140,6 @@
         width: 260px;
     }
 }
-
 .feedback__buttons{
     width: 100%;
     display: flex;

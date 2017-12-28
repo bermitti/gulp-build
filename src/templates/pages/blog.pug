@@ -1,7 +1,5 @@
-//-расширяет(наследует) исходный шаблон от tamplate.pug
 extends ../template
 
-//-блок переменных, подставляем переменнуб title в наследуемый шаблон
 block variables
     - var title = 'Блог'
     - 
@@ -15,7 +13,6 @@ block content
 
 
     section.section.hero
-        //-в подключаемый модуль pug//Модальное окно
         .modal-window
             .modal-window__left
             .modal-window__right
@@ -30,9 +27,7 @@ block content
                     li.modal-window__item
                         a.modal-window__link(href="index.html") Авторизация
         .hero__header
-            //позиционирование внутренних элементов(блоков)
             .hero__socials
-                //блок без позиционирования. сделать потом миксином.
                 ul.socials
                     li.socials__item
                         a.socials__link(href="https://vk.com/id431828997")
@@ -46,11 +41,6 @@ block content
                         a.socials__link(href="#")
                             svg.socials__icon.socials__icon_about
                                 use(xlink:href="assets/images/icons/sprite/sprite.svg#in")
-
-            //- //миксин. позиционирование .humburger  вешаем на класс .hero__menu
-            //- a(href="").humburger.hero__menu
-            //-                 svg.humburger__icon.humburger__icon_about
-            //-                     use(xlink:href="assets/images/icons/sprite/sprite.svg#hamburger")
 
             .hero__humburger
                     a.humburger(href="#")
@@ -69,12 +59,11 @@ block content
                     svg.section-title__pic
                         use(xlink:href="assets/images/icons/sprite/sprite.svg#blog_header")
                 
-        //миксин. позиционирование .hero__arrow  а отображение через класс .arrow__down
         .hero__arrow.arrow__down
             a.hero__arrow-link(href="#blog")
                 svg.arrow__icon
                     use(xlink:href="assets/images/icons/sprite/sprite.svg#arrow_down")
-        //-треугольники позицианируем position: absolute   -top
+
         .my-works__triangls.triangles_blog
             .my-works__triangle_works
                 svg.triangle.triangle_fill_blog
@@ -115,8 +104,7 @@ block content
         .footer__row
             .footer__col
                 .footer__menu
-                    //можно и без nav , только со списком. Но он нужен для семантики
-                    //nav.menu сделать миксином и использовать в полноэкранном меню, для стилизации использовать nav.menu.menu_vertical . но зависимость как исключение
+
                     nav.menu
                         ul.menu__list
                             - var i = 0
@@ -125,7 +113,6 @@ block content
                                     a(href=`${navItemsFooter[i].href}`).menu__link=navItemsFooter[i].name
             .footer__col
                 .footer__social
-                    //модификатор .socials_rounded
                     ul.socials.socials_rounded
                         li.socials__item
                             a.socials__link(href="https://vk.com/id431828997")

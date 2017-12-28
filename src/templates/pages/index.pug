@@ -1,7 +1,5 @@
-//-расширяет(наследует) исходный шаблон от tamplate.pug
 extends ../template
 
-//-блок переменных, подставляем переменнуб title в наследуемый шаблон
 block variables
     - var title = 'Главная страница'
     - 
@@ -16,9 +14,6 @@ block content
         .welcome__parallaxLs.parallaxLs
             - for (var i = 1; i <= 10; i++)
                 .parallaxLs__layer
-                    //-ВАЖНО! ковычки для видемых вложений одинаковые ' .. ' +[i]+ ' .. '
-                    //-ВАЖНО! классы в строках пишем без точек class = '   parallaxLs__image'
-                    //-как вставить 'data-speed='+[i], 
                     img(src=`./assets/images/parallax/layer${i}.png`, data-speed=`${i}`, alt='', class ='parallaxLs__image parallaxLs__image_' + [i])
 
         header.welcome__header
@@ -63,14 +58,7 @@ block content
                                 - for( i ; i < navItems.length; i++)
                                     li.nav__item
                                         a(href=`${navItems[i].href}`).nav__link.nav__link_welcome=navItems[i].name
-                            //- ul.nav__list.nav__list_welcome
-                            //-     li.nav__item
-                            //-         a.nav__link.nav__link_welcome(href="my_works.html") Мои работы
-                            //-     li.nav__item
-                            //-         a.nav__link.nav__link_welcome(href="about.html") Обо мне
-                            //-     li.nav__item
-                            //-         a.nav__link.nav__link_welcome(href="blog.html") Блог                                    
-
+                              
                     .flipper__back
                         .welcome__title
                             .block-subtitle.block-subtitle_welcom Авторизируйтесь
@@ -111,14 +99,3 @@ block content
         footer.welcome__footer
             .welcome__footer-copyright
                 p © Владимир Астахов | создано с любовью в LoftSchool | 2017
-
-
-
-
-
-    //- form
-    //- label(for="email") email
-    //- input(name="email" id="email")
-    //- label(for="password") password
-    //- input(name="password" id="password")
-    //- button Войти    

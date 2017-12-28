@@ -8,7 +8,6 @@ section, div{
     justify-content: center;
     align-items: flex-end;
     position: relative;
-    // border: 1px solid rgb(250, 227, 18);
 }
 .section-title_blog{
     height: 50%;
@@ -21,12 +20,10 @@ section, div{
 }
 .triangles_blog{
     bottom: -3%; //баг
-
 }
 
 .blog{
     position: relative;
-    min-height: 50px; //del
     box-sizing: border-box;
     padding: 30px 40px;
     background-color: #ffffff;

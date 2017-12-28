@@ -18,20 +18,11 @@
     }
 }
 
-
 .socials__icon_about{
     fill: rgba(252, 252, 252, 0.5);
     &:hover{
         fill: rgba(252, 252, 252, 1);
     }
-}
-//-можно вынести в файл svg.scss
-.humburger__icon{
-    width: 40px;
-    height: 40px;
-}
-.humburger__icon_about{
-    fill: rgba(255, 255, 255, 1);
 }
 
 .hero__title{
@@ -59,7 +50,7 @@
 .hero__arrow{
     display: flex;
     justify-content: center;
-    z-index: 1; //-наезжают абсолютом блоки
+    z-index: 1; 
 }
 .arrow__down{
     padding-bottom: 70px;
@@ -74,7 +65,6 @@
     }
 }
 
-//-section.section.about
 .about{
     display: flex;
     @include phones{
@@ -158,7 +148,7 @@
         width: 100%;
     }
     &-content{
-        box-sizing: border-box; //чтобы не вылазил список скилов
+        box-sizing: border-box; 
         width: 100%;
         padding: 20px; 
     }
@@ -174,7 +164,6 @@
     padding: 0 30px;
 }
 
-//-стили для скиллов
 .skills-list{
     list-style: none;
 }
@@ -197,7 +186,6 @@
     }
 }
 
-//-cтили для секции .map
 .map{
     height: 100vh;
     background-color: greenyellow;

@@ -8,23 +8,26 @@ block variables
 html(lang="ru")
     head
         meta(charset="UTF-8")
-        //-"ширина устройства, пересёч при изменении viewport" == "width=device-width, initial-scale=1.0"
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
-        //-заменить на стили для каждой страницы
         link(rel="stylesheet", href="./assets/styles/app.min.css") 
-        //-будем подставлять сюда заголовки #(title) для каждой страницы
         title #{title}
-        //- script(async, defer, src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPNNwBKiezkzEec7PFI6X3A-5xNHA6dJ4&callback=initMap", type="text/javascript")
 
     body
+        .preloader
+            .loader
+                .loader__spinner
+                    svg.circles__preloader(viewbox='0 0 110 110')
+                        circle.circle__spinner-1(r="53" cx="50%" cy="50%" transform="rotate(-90 55 55)" stroke="white" fill="transparent" stroke-width="3" stroke-dasharray= (200 + ' 360'))
+                        circle.circle__spinner-2(r="45" cx="50%" cy="50%" transform="rotate(-70 55 55)" stroke="white" fill="transparent" stroke-width="3" stroke-dasharray= (100 + ' 360'))
+                        circle.circle__spinner-2(r="37" cx="50%" cy="50%" stroke="white" fill="transparent" stroke-width="3" stroke-dasharray= (100 + ' 360'))
+                        circle.circle__spinner-2(r="29" cx="50%" cy="50%" transform="rotate(30 55 55)" stroke="white" fill="transparent" stroke-width="3" stroke-dasharray= (100 + ' 360'))
+                .loader__text
+                    span.loaded 100%
         .wrapper
             block content
-            //-вставка из каждого файла
+
             
 
-
-
-        //- script(async defer src="https://maps.googleapis.com/maps/api/js?callback=initMap") 
 
         script(src='assets/scripts/bundle.js' defer)

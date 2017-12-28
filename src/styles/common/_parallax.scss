@@ -18,28 +18,24 @@
     position: absolute;
     top: 0;
     left: 0;
-    //- right: 0; 
-    width: 100%;  //-можно убрать т.к. растягиваем лево 0 - право 0
+    width: 100%;  
     height: 100%;
-    will-change: transform; //- информируем браузер об изменениях => приводит к более быстрому рендерингу. Применять только у родителя и заранее!!
+    will-change: transform;
 }
 .parallaxLs__image{
-    //- border: 1px solid red;  //для наглядности
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    //- bottom: 0;    учтено в parallax.js
-    //- width: auto;  если размеры картинок подогнаны под экран
-    width: 180%;  // методом тыка подогнал размеры картинки под размер экрана
-    
+    width: 115%;  
+
     transition: all 1s;
     &_10{
-        animation-name: fly;   //- oпределяет имя @keyframes, настраивающего кадры анимации
-        animation-iteration-count: infinite; //-количество повторении анимации, nfinite -бесконечно
-        animation-timing-function: linear; //-функция анимации
+        animation-name: fly;   
+        animation-iteration-count: infinite; 
+        animation-timing-function: linear; 
         animation-duration: 60s;
-        left: 0; //-смещаю облако так как красиво
-        transform: translateX(-5%); //-смещаю облако так как красиво
+        left: 0; 
+        transform: translateX(-5%); 
     }
     &_7{
         animation-name: fly;
@@ -54,14 +50,17 @@
         animation-duration: 150s;
         left: -50%
     }
+    &_1{
+        width: 235%;
+    }
 }
 
-@keyframes fly {  //-устанавливает ключевые кадры при анимации элемента
+@keyframes fly {  
     0% {transform: translateX(initial);}
     50% {transform: translateX(-100%);}
     100% {transform: translateX(initial);}
 }
-@keyframes fly-reverse {  //-устанавливает ключевые кадры при анимации элемента
+@keyframes fly-reverse {  
     0% {transform: translateX(initial);}
     50% {transform: translateX(100%);}
     100% {transform: translateX(initial);}
