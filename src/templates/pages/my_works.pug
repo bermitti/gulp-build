@@ -1,10 +1,183 @@
-//-расширяет(наследует) исходный шаблон от tamplate.pug
 extends ../template
 
-//-блок переменных, подставляем переменнуб title в наследуемый шаблон
+
 block variables
     - var title = 'Мои работы'
+    - 
+        var navItemsFooter = [
+            {'name':'Мои работы', 'href':'my_works.html'},
+            {'name':'Обо мне', 'href':'about.html'},
+            {'name':'Блог', 'href':'blog.html'},
+            {'name':'Авторизация', 'href':'index.html'}
+        ]
 
 block content
-    h1 Мои работы
-    include ../common/slider.pug
+
+    section.section.hero
+        a.my-works__anchor(name="my-works-header")
+
+        .modal-window
+            .modal-window__left
+            .modal-window__right
+            .modal-window__nav
+                ul.modal-window__list
+                    li.modal-window__item
+                        a.modal-window__link(href="my_works.html") Мои работы
+                    li.modal-window__item
+                        a.modal-window__link(href="about.html") Обо мне
+                    li.modal-window__item
+                        a.modal-window__link(href="blog.html") Блог
+                    li.modal-window__item
+                        a.modal-window__link(href="index.html") Авторизация
+        .hero__header
+            .hero__socials
+                //блок без позиционирования. сделать потом миксином.
+                ul.socials
+                    li.socials__item
+                        a.socials__link(href="https://vk.com/id431828997")
+                            svg.socials__icon.socials__icon_about
+                                use(xlink:href="assets/images/icons/sprite/sprite.svg#vk")
+                    li.socials__item
+                        a.socials__link(href="https://github.com/bermitti/gulp-build") 
+                            svg.socials__icon.socials__icon_about      
+                                use(xlink:href="assets/images/icons/sprite/sprite.svg#github")                             
+                    li.socials__item
+                        a.socials__link(href="#")
+                            svg.socials__icon.socials__icon_about
+                                use(xlink:href="assets/images/icons/sprite/sprite.svg#in")
+            .hero__humburger
+                    a.humburger(href="#")
+                        span.humburger__line
+                        span.humburger__line
+                        span.humburger__line
+
+        .hero__title
+            .section-title
+                svg.section-title__pic
+                    use(xlink:href="assets/images/icons/sprite/sprite.svg#portfolio_header")
+                
+            .hero__user.user
+                .user__pic
+                    img.user__pic-img(src="assets/images/elem/user.png", alt="")
+                .user__info
+                    .user__name Владимир Астахов
+                    .user__data Личный сайт разработчика
+
+        .hero__arrow.arrow__down
+            a.hero__arrow-link(href="#my-works")
+                svg.arrow__icon
+                    use(xlink:href="assets/images/icons/sprite/sprite.svg#arrow_down")
+
+    section.section.my-works
+        a.my-works__anchor(name="my-works")
+        .my-works__triangls
+            .my-works__triangle_works
+                  svg.triangle.triangle_fill_my-works
+                    use(xlink:href="assets/images/icons/sprite/sprite.svg#my_about_bg_left")
+            .my-works__triangle_works
+                svg.triangle.triangle_fill_my-works
+                    use(xlink:href="assets/images/icons/sprite/sprite.svg#my_about_bg_right")
+        .my-works__title
+            .my-works__title-bg
+                svg.my-works__title-pic
+                    use(xlink:href="assets/images/icons/sprite/sprite.svg#works_header")
+            .my-works__title-descr
+                .block-title Мои работы   
+        .slider
+            .slider__info Инфа
+            .slider__display Картинка
+            .slider__btns кнопки                   
+
+    section.section.section__mentions
+        .mentions
+            .mentions__header
+                .mentions__header-bg
+                    svg.mentions__header-bg-icon
+                        use(xlink:href="assets/images/icons/sprite/sprite.svg#works_header")
+                .block-title.mentions__header-title Что обо мне говорят
+
+            .mentions__opinions
+                ul.mentions__list
+                    li.mentions__item
+                        .mention
+                            .mention__quote
+                                svg.mention__quote-icon
+                                    use(xlink:href="assets/images/icons/sprite/sprite.svg#quote")                                
+                            .mention__text.text-block Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+                            .mention__owner
+                                .owner
+                                    .owner__photo
+                                        img.owner__img(src="assets/images/elem/DmKoval.png", alt="")
+                                    .owner__desc
+                                        .owner__name Ковальчук Дмитрий
+                                        .owner__position основатель Liftschool
+                    li.mentions__item
+                        .mention
+                            .mention__quote
+                                svg.mention__quote-icon
+                                    use(xlink:href="assets/images/icons/sprite/sprite.svg#quote")                                
+                            .mention__text.text-block Этот код выдержит любые испытания. Только пожалуйста, не загружается сайт на слишком старых браузерах!
+                            .mention__owner
+                                .owner
+                                    .owner__photo
+                                        img.owner__img(src="assets/images/elem/VvSb.png", alt="")
+                                    .owner__desc
+                                        .owner__name Сабанцев Владимир
+                                        .owner__position преподаватель
+
+            .mentions__feedback
+                .feedback
+                    .feedback__container
+                        .feedback__header
+                            .block-subtitle.block-subtitle_feadback Связаться со мной
+                        .feedback__form
+                            form(id='feedback-form', class='form', method = 'POST', action = '')
+                                    .form__field
+                                        input(type='text', id='name', name ='name', placeholder='Имя', class='form__input')
+                                    .form__field
+                                        input(type='email', id='email', name = 'email', placeholder='Email', class='form__input')
+                                    .form__field
+                                        textarea(type='text', id='message', name = 'message', rows='5', class='form__input', resize: none, placeholder='Ваше сообщение')
+                                        
+                    .feedback__buttons
+                        button(form='feedback-form', type='submit', class='btn_form') Отправить
+                        button(form='feedback-form', type='reset', class='btn_form') Очистить
+
+            .mentions__arrow-top
+
+    footer.footer 
+        .footer__row
+            .footer__col
+                .footer__menu
+                    //можно и без nav , только со списком. Но он нужен для семантики
+                    //nav.menu сделать миксином и использовать в полноэкранном меню, для стилизации использовать nav.menu.menu_vertical . но зависимость как исключение
+                    nav.menu
+                        ul.menu__list
+                            - var i = 0
+                            - for( i ; i < navItemsFooter.length; i++)
+                                li.menu__item
+                                    a(href=`${navItemsFooter[i].href}`).menu__link=navItemsFooter[i].name
+            .footer__col
+                .footer__social
+                    //модификатор .socials_rounded
+                    ul.socials.socials_rounded
+                        li.socials__item
+                            a.socials__link(href="https://vk.com/id431828997")
+                                svg.socials__icon.socials__icon_footer
+                                    use(xlink:href="assets/images/icons/sprite/sprite.svg#vk")
+                        li.socials__item
+                            a.socials__link(href="https://github.com/bermitti/gulp-build") 
+                                svg.socials__icon.socials__icon_footer      
+                                    use(xlink:href="assets/images/icons/sprite/sprite.svg#github")                             
+                        li.socials__item
+                            a.socials__link(href="#")
+                                svg.socials__icon.socials__icon_footer
+                                    use(xlink:href="assets/images/icons/sprite/sprite.svg#in")
+
+        .footer__row
+            .footer__col
+                .footer__text
+                    p Я веб-разработчик из Екатеринбурга, и этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool.
+            .footer__col
+                .footer__text.footer__text_right
+                    p © Владимир Астахов | создано в LoftSchool | 2018

@@ -1,0 +1,163 @@
+
+
+.my-works{
+    position: relative;
+    width: 100%;
+
+}
+
+.my-works__triangls{
+    width: 100%;
+    display: flex;
+    position: absolute;
+    bottom: 99%;
+}
+.my-works__triangle_works{
+    width: 100%;    
+}
+.triangle{
+    width: 100%;
+    &_fill_my-works{
+        fill: #faf8f0;
+    }
+}
+
+.my-works__title{
+    background-color: #faf8f0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &-pic{
+        fill: #f0eee7;
+    }
+    &-descr{
+        position: absolute;
+    }
+}
+
+.section__mentions{
+    background-image: url(../images/bg/bg-my-work.png);
+    background-size: cover;
+    background-position: center;
+    padding: 35px 20px;
+}
+.mentions{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__header{
+        position: relative;
+        padding-bottom: 20px;
+        &-bg-icon{
+            fill: rgba(162, 180, 178, 0.2);
+            width: 500px;
+        }
+    }
+    &__header-title{
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+    &__opinions{
+        padding-bottom: 50px;
+    }
+    &__list{
+        list-style: none;
+        display: flex;  
+        @include phones{
+            flex-direction: column;
+        }      
+    }
+    &__item{
+        padding-right: 20px;
+        &:last-child{
+            padding-right: 0;
+        }
+    }
+}
+.mention{
+    &__quote{
+        width: 38px;
+        height: 38px;
+        @include phones{
+            display: flex;
+            justify-content: center;
+        }
+        &-icon{
+            display: block;
+            width: 100%;
+            height: 100%;
+            fill: rgba(162, 180, 178, 0.2);            
+        }
+    }
+    &__text{
+        padding: 20px 0;
+    }
+}
+.owner{
+    display: flex;
+    align-items: center;
+    &__photo{
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        overflow: hidden;        
+    }
+    &__desc{
+        padding-left: 20px;
+        color: #20b5a1;
+    }
+}
+
+//-форма для связи
+.feedback{
+    box-sizing: border-box;
+    background: linear-gradient(180deg, #f8f7f6 0%, #afa59d 25%, #268190 75%, #26737c 100%);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+    &__header{
+        height: 75px;
+        padding-top: 20px;
+    }
+    &__container{
+        padding: 15px 20px;
+    }
+}
+.form__input{
+    width: 300px;
+    border: none;
+    padding: 10px; 
+    border-radius: 5px;
+    margin-bottom: 15px;
+    @include phones{
+        width: 260px;
+    }
+}
+.feedback__buttons{
+    width: 100%;
+    display: flex;
+}
+.btn_form{
+    height: 45px;
+    width: 50%;
+    border: 0;
+    border-right: solid 1px #d7f0ed;
+    color: white;
+    background-color: #268c8c;
+    padding: 10px;
+    transition: 0.5s;
+    cursor: pointer;
+    &:last-child{
+        border: 0;
+    }
+    &:hover{
+        background-color: #26bbaa;
+    }
+}

@@ -1,11 +1,188 @@
-//-расширяет(наследует) исходный шаблон от tamplate.pug
 extends ../template
 
-//-блок переменных, подставляем переменнуб title в наследуемый шаблон
 block variables
     - var title = 'Обо мне'
+    - 
+        var navItemsFooter = [
+            {'name':'Мои работы', 'href':'my_works.html'},
+            {'name':'Обо мне', 'href':'about.html'},
+            {'name':'Блог', 'href':'blog.html'},
+            {'name':'Авторизация', 'href':'index.html'}
+        ]
+    -
+        var skills = [
+            { name: 'Frontend' , items: [ {name: 'HTML5', percentage:75}, {name: 'CSS3', percentage:70}, {name: 'JavaScript & JQuery', percentage: 50} ] },
+            { name: 'Backend', items: [ {name: 'PHP', percentage: 20}, {name: 'MySQL', percentage:40}, {name: 'Node.js & npm', percentage: 25}, {name: 'Mongo.db', percentage: 20} ] },
+            { name: 'Workflow', items: [ {name: 'Git', percentage: 70}, {name: 'Gulp', percentage: 65}, {name: 'Webpack', percentage: 20} ] }
+        ]
 
 block content
-    h1 Обо мне
-    //-инклюды это аналог import в CSS
-    include ../common/technologies.pug
+
+    section.section.hero
+        .modal-window
+            .modal-window__left
+            .modal-window__right
+            .modal-window__nav
+                ul.modal-window__list
+                    li.modal-window__item
+                        a.modal-window__link(href="my_works.html") Мои работы
+                    li.modal-window__item
+                        a.modal-window__link(href="about.html") Обо мне
+                    li.modal-window__item
+                        a.modal-window__link(href="blog.html") Блог
+                    li.modal-window__item
+                        a.modal-window__link(href="index.html") Авторизация
+        .hero__header
+            //позиционирование внутренних элементов(блоков)
+            .hero__socials
+                //блок без позиционирования. сделать потом миксином.
+                //- ul.socials 
+                //-     each item in ['vk', 'tw', 'in']
+                //-         li.socials__item
+                //-             a(href=`${item}`).socials__link
+                ul.socials
+                    li.socials__item
+                        a.socials__link(href="https://vk.com/id431828997")
+                            svg.socials__icon.socials__icon_about
+                                use(xlink:href="assets/images/icons/sprite/sprite.svg#vk")
+                    li.socials__item
+                        a.socials__link(href="https://github.com/bermitti/gulp-build") 
+                            svg.socials__icon.socials__icon_about      
+                                use(xlink:href="assets/images/icons/sprite/sprite.svg#github")                             
+                    li.socials__item
+                        a.socials__link(href="#")
+                            svg.socials__icon.socials__icon_about
+                                use(xlink:href="assets/images/icons/sprite/sprite.svg#in")
+
+
+            //- //миксин. позиционирование .humburger  вешаем на класс .hero__menu
+            //- a(href="").humburger.hero__menu
+            //-                 svg.humburger__icon.humburger__icon_about
+            //-                     use(xlink:href="assets/images/icons/sprite/sprite.svg#hamburger")
+
+            .hero__humburger
+                    a.humburger(href="#")
+                        span.humburger__line
+                        span.humburger__line
+                        span.humburger__line
+
+        .hero__title
+            .section-title
+                svg.section-title__pic
+                    use(xlink:href="assets/images/icons/sprite/sprite.svg#portfolio_header")
+                
+            //миксин. позиционирование для элемента .hero__user //блок .user без позиционирования
+            .hero__user.user
+                .user__pic
+                    img.user__pic-img(src="assets/images/elem/user.png", alt="")
+                .user__info
+                    .user__name Владимир Астахов
+                    .user__data Личный сайт разработчика
+
+        .hero__arrow.arrow__down
+            a.hero__arrow-link(href="#about")
+                svg.arrow__icon
+                    use(xlink:href="assets/images/icons/sprite/sprite.svg#arrow_down")
+
+        .my-works__triangls.triangles_blog
+            .my-works__triangle_works
+                svg.triangle.triangle_fill_about-left
+                    use(xlink:href="assets/images/icons/sprite/sprite.svg#my_about_bg_left")
+            .my-works__triangle_works
+                svg.triangle.triangle_fill_about-right
+                    use(xlink:href="assets/images/icons/sprite/sprite.svg#my_about_bg_right")
+
+    section.section.about
+        a.about__anchor(name="about")
+        .about__left
+            .about__left-title
+                .block-title Обо мне
+
+            .about__left-content
+                .user-description
+                    .user-description__image
+                        img.user-description__avatar(src="assets/images/elem/user-about.png", alt="")
+                    .user-description__title
+                        .block-subtitle Кто я
+                        //стилизуем  блок с классом .text-block .Для позиционирования .user-description__text
+                    .user-description__text.text-block      
+                        p Я веб разработчик из Новосибирска. Мне 27 лет. Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+                        p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите,как тут всё классно и красиво!
+
+        .about__right
+            .about__right-title.block-subtitle Чем я могу быть вам полезен   
+            .user__right-description.text-block 
+                p Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать не сложные задачи на Backend. Но давайте по порядку.
+            .about__right-content       
+
+                ul.skills
+                    each skill in skills  
+                        li.skills-list__item
+                            .skills-row__title #{skill.name} 
+                            ul.skills-row__list
+                                each item in skill.items
+                                    li.skills-row__item 
+                                        svg.circles(viewbox='0 0 110 110')
+                                            circle.circle__first(r="45" cx="50%" cy="50%" fill="none")
+                                            circle.circle__second(r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)" style={opacity: item.percentage / 100} stroke-dasharray= (item.percentage * 2.8 + ' 360'))
+                                        .skills-row__item-title #{item.name}                                              
+                                            
+    section.section.map
+        .google-map
+            <iframe src="https://snazzymaps.com/embed/35731" width="100%" height="100%" style="border:none;"></iframe>
+
+        .map-data
+            .contacts
+                .contacts__title
+                    .block-subtitle Контакты
+                ul.contacts__list
+                    -
+                        var contacts = [
+                            ['skype', 'skype_kdn'],
+                            ['mail', 'astakhov@gmail.com'],
+                            ['tel', '+7 966 0407017'],
+                            ['adress', 'г.Новосибирск']
+                        ]
+                    each item in contacts
+                        //стилизуем  блок с классом .contacts__row .Для позиционирования .contacts__item
+                        li.contacts__item.contacts__row
+                            .contacts-row__icon #{item[0]}
+                            .contacts-row__title #{item[1]}
+
+    footer.footer 
+        .footer__row
+            .footer__col
+                .footer__menu
+                    nav.menu
+                        ul.menu__list
+                            - var i = 0
+                            - for( i ; i < navItemsFooter.length; i++)
+                                li.menu__item
+                                    a(href=`${navItemsFooter[i].href}`).menu__link=navItemsFooter[i].name
+            .footer__col
+                .footer__social
+
+                    ul.socials.socials_rounded
+                        li.socials__item
+                            a.socials__link(href="https://vk.com/id431828997")
+                                svg.socials__icon.socials__icon_footer
+                                    use(xlink:href="assets/images/icons/sprite/sprite.svg#vk")
+                        li.socials__item
+                            a.socials__link(href="https://github.com/bermitti/gulp-build") 
+                                svg.socials__icon.socials__icon_footer      
+                                    use(xlink:href="assets/images/icons/sprite/sprite.svg#github")                             
+                        li.socials__item
+                            a.socials__link(href="#")
+                                svg.socials__icon.socials__icon_footer
+                                    use(xlink:href="assets/images/icons/sprite/sprite.svg#in")
+
+
+
+
+        .footer__row
+            .footer__col
+                .footer__text
+                    p Я веб-разработчик из Екатеринбурга, и этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool.
+            .footer__col
+                .footer__text.footer__text_right
+                    p © Владимир Астахов | создано в LoftSchool | 2018

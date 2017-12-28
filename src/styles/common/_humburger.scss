@@ -1,0 +1,38 @@
+
+.hero__humburger{
+    z-index: 101;
+    &:hover{
+        cursor: pointer;
+    }
+}
+.humburger{
+    width: 40px;
+    height: 36px;
+    z-index: 101; 
+}
+.humburger__line{
+    width: inherit;
+    height: 5px;
+    background: rgb(255, 255, 255);
+    display: block;
+    margin: 8px auto;
+    transition: all 0.3s ease-in-out;
+}
+
+.humburger__icon{
+    width: 40px;
+    height: 40px;
+}
+.humburger__icon_about{
+    fill: rgba(255, 255, 255, 1);
+}
+
+.is-active .humburger__line:nth-child(2){      //-потомок класса .is-active
+    opacity: 0;
+}
+.is-active > .humburger__line:nth-child(1){    //-потомок класса .is-active
+    transform: translateY(13px) rotate(45deg);
+}
+.is-active .humburger__line:nth-child(3){
+    transform: translateY(-13px) rotate(-45deg);
+}

@@ -1,0 +1,127 @@
+
+section, div{
+    box-sizing: border-box;
+}
+.blog-intro{
+    height: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+}
+.section-title_blog{
+    height: 50%;
+}
+.hero__user_blog{
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.triangles_blog{
+    bottom: -3%; //баг
+}
+
+.blog{
+    position: relative;
+    box-sizing: border-box;
+    padding: 30px 40px;
+    background-color: #ffffff;
+    display: flex;
+    width: 100%;
+    @include tablets{
+        flex-direction: column;
+    }
+    &__left{
+        width: 30%;
+        @include tablets{
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(50, 238, 213, 0.8);
+            color: white;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            position: fixed;
+            z-index: 100;
+            top: 0%;
+            left: -100%;
+        }
+    }
+    &__right{
+        width: 70%;
+        padding-left: 70px;
+        @include tablets{
+            width: 100%;
+            padding: 0;
+        }
+    }
+}
+.triangle_fill_blog{
+    fill: #ffffff;
+}
+.blog-nav__list{
+    list-style: none;
+}
+.blog-nav__item{
+    margin-bottom: 15px;
+    padding-right: 10px;
+    text-align: right;
+    vertical-align: middle;
+    &_active{
+        border-right: 2px solid #00bfa5;
+    }
+    &_active .blog-nav__link{
+        color: #00bfa5;
+        @include tablets{
+            color: white;
+            text-transform: uppercase;
+        }
+    }
+}
+.blog-nav__link{
+    cursor: pointer;
+    text-decoration: none;
+    color: #455a64;
+    @include tablets{
+        color: rgba(255, 255, 255, 0.5);
+    }
+    &:hover{
+        cursor: pointer;
+        color: #00bfa5;
+        @include tablets{
+            color: rgba(255, 255, 255, 1);
+        }
+    }
+}
+.blog-nav{
+    position: relative;
+}
+.blog-nav__buttom{
+    @include tablets{
+        display: block;
+        content: "";
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background-color: rgba(50, 238, 213, 1);
+        position: fixed;
+        top: 50%;
+        left: -23px;
+        cursor: pointer; 
+    }
+}
+
+.article{
+    border-bottom: 2px solid #f5f2f0;
+    &__date{
+        color: #00bfa5;
+        padding-bottom: 10px;
+    }
+    &__text{
+        padding-bottom: 10px;
+    }
+    &:last-child{
+        border-bottom: none;
+    }
+}

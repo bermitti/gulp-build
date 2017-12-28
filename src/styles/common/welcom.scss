@@ -1,0 +1,134 @@
+
+.welcome {
+    background-image: url(../images/bg/bg-welcom.png);
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    position: relative; 
+    &__login{
+        position: absolute; 
+    }
+}
+.welcome__header {
+    height: 90px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 15px;
+}
+.btn-login{
+    cursor: pointer;
+    border-color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    color: white;
+    background-color: transparent;
+    padding: 10px;
+    transition:all 0.5s ease-in-out;
+    &:hover{
+        background-color: white;
+        border-color: transparent;
+        color: #00bfa5;
+    }
+    &_hidden{
+        transform: translateY(-1000px); 
+    }
+}
+
+button.btn-login:focus {
+    outline: none;
+ }
+
+.welcome__content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0 0;
+    &__pic{
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-bottom: 20px;
+    }
+    &__info{
+        text-align: center;
+    }
+    &__name{
+        margin-bottom: 10px;
+    }
+}
+
+.welcome__socials{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav__link_welcome,.nav__link_welcome-back{
+    background-color: #00bfa5;
+    &:hover{
+        background-color: #0e9289;
+    }
+}
+
+.welcome__login-form{
+    display: flex;
+    justify-content: center;
+}
+.form__row{
+    display: flex;
+    justify-content: center;
+}
+.form__line-title{
+    text-align: center;
+}
+.nav__item_welcome-back{
+    width: 50%;
+}
+.nav__link_welcome-back{
+    width: 100%;
+    text-align: center;
+}
+
+
+.nav__list{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.nav__item{
+    display: inline-block;
+    border-right: solid 2px #6fd1c6;
+    &:last-child{
+        border-right: none;
+    }
+}
+.nav__link{
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 33px;
+    white-space: nowrap;
+    color: white;
+}
+
+.welcome__footer {
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+

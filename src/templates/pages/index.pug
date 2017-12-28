@@ -1,21 +1,101 @@
-//-расширяет(наследует) исходный шаблон от tamplate.pug
 extends ../template
 
-//-блок переменных, подставляем переменнуб title в наследуемый шаблон
 block variables
-    - var title = 'Welcome'
+    - var title = 'Главная страница'
+    - 
+        var navItems = [
+            {'name':'Мои работы', 'href':'my_works.html'},
+            {'name':'Обо мне', 'href':'about.html'},
+            {'name':'Блог', 'href':'blog.html'}
+        ]
 
 block content
-    .header
-        .autorization
+    .welcome
+        .welcome__parallaxLs.parallaxLs
+            - for (var i = 1; i <= 10; i++)
+                .parallaxLs__layer
+                    img(src=`./assets/images/parallax/layer${i}.png`, data-speed=`${i}`, alt='', class ='parallaxLs__image parallaxLs__image_' + [i])
+
+        header.welcome__header
+            .welcome__login
+                button.btn-login Авторизироваться
+
+        section.welcome__content
+            .welcome__flipper
+                .flipper
+                    .flipper__front
+                        //cтили в .welcome__user , а .user можно вынести миксином  
+                        .welcome__user.user
+                            .user__pic
+                                img.user__pic-img(src="assets/images/elem/user.png", alt="")
+                            .user__info
+                                .user__name Владимир Астахов
+                                .user__data Личный сайт разработчика
+
+                        .welcome__socials
+                            //блок без позиционирования. сделать потом миксином.
+                            //- ul.socials 
+                            //-     each item in ['vk', 'tw', 'in']
+                            //-         li.socials__item
+                            //-             a(href=`${item}`).socials__link
+                            ul.socials
+                                li.socials__item
+                                    a.socials__link(href="https://vk.com/id431828997")
+                                        svg.socials__icon.socials__icon_welcome
+                                            use(xlink:href="assets/images/icons/sprite/sprite.svg#vk")
+                                li.socials__item
+                                    a.socials__link(href="https://github.com/bermitti/gulp-build") 
+                                        svg.socials__icon.socials__icon_welcome      
+                                            use(xlink:href="assets/images/icons/sprite/sprite.svg#github")                             
+                                li.socials__item
+                                    a.socials__link(href="#")
+                                        svg.socials__icon.socials__icon_welcome
+                                            use(xlink:href="assets/images/icons/sprite/sprite.svg#in")
+
+                        .welcome__buttons
+                            ul.nav__list.nav__list_welcome
+                                - var i = 0
+                                - for( i ; i < navItems.length; i++)
+                                    li.nav__item
+                                        a(href=`${navItems[i].href}`).nav__link.nav__link_welcome=navItems[i].name
+                              
+                    .flipper__back
+                        .welcome__title
+                            .block-subtitle.block-subtitle_welcom Авторизируйтесь
+                        .welcome__login-form
+                            form(id='login', class='form', action="", method="post")
+                                .form__field
+                                    .form__field-icon
+                                    input(type="login", class="form__input form__input_login", name="login", placeholder="Логин")
+                                .form__field
+                                    .form__field-icon
+                                    input(type="password", class="form__input form__input_password", name="password", placeholder="Пароль")
+                                .form__row
+                                    .form__checkbox
+                                        input#robot(type="checkbox", name="robot")
+                                        label(for="robot") Я человек
+                                            .checkbox-fake
+                             
+                                .form__line-title Вы точно не робот?
+
+                                .form__row
+                                    .form__radio
+                                        input#robot-radio-1(type="radio" name="robot-radio")
+                                        label(for="robot-radio-1") Да
+                                            .radio-fake
+                                    .form__radio
+                                        input#robot-radio-2(type="radio" name="robot-radio")
+                                        label(for="robot-radio-2") Не уверен
+                                            .radio-fake
 
 
+                        .welcome__buttons-back
+                            ul.nav__list.nav__list-welcome-back
+                                li.nav__item.nav__item_welcome-back
+                                    a.nav__link.nav__link_welcome-back(href="index.html") На главную
+                                li.nav__item.nav__item_welcome-back
+                                    a.nav__link.nav__link_welcome-back(href="#") Войти
 
-
-
-    //- form
-    //- label(for="email") email
-    //- input(name="email" id="email")
-    //- label(for="password") password
-    //- input(name="password" id="password")
-    //- button Войти    
+        footer.welcome__footer
+            .welcome__footer-copyright
+                p © Владимир Астахов | создано с любовью в LoftSchool | 2017

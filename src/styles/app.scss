@@ -1,7 +1,40 @@
-body{
-    margin: 100px;
-    background: rgb(84, 250, 6)
-}
-@import 'common/menu';
-@import 'common/technologies';
-@import 'common/slider';
+
+//-подключение normalize через плагин node-normalize-scss
+@import "normalize"; 
+//-подключение переменных
+@import "base/_variables";
+//-подключение миксинов
+@import "base/_mixins";
+//-подключение базовых стилей
+@import "base/_base";
+//-подключение шрифтов
+@import "base/fonts";
+//-подключение стилей для иконок соц.сетей
+@import "common/_social";
+//-подключение стилей для кнопки меню
+@import "common/_humburger";
+//-подключение стилей для футера
+@import "common/_footer";
+//-подключение стилей для анимации флиппера и кнопки авторизации
+@import "common/_flipper";
+//-подключение стилей для модального окна
+@import "common/_modal-window";
+//-подключение стилей для блока навыков
+@import "common/_skills";
+//-подключение стилей для блока parallax
+@import "common/_parallax";
+//-подключение стилей для блока preloader
+@import "common/_preloader";
+
+@import "common/_slider";
+
+
+
+@import "common/welcom";
+@import "common/about";
+@import "common/my-works";
+@import "common/blog";
+
+
+
+

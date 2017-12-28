@@ -1,9 +1,138 @@
-//-расширяет(наследует) исходный шаблон от tamplate.pug
 extends ../template
 
-//-блок переменных, подставляем переменнуб title в наследуемый шаблон
 block variables
     - var title = 'Блог'
-
+    - 
+        var navItemsFooter = [
+            {'name':'Мои работы', 'href':'my_works.html'},
+            {'name':'Обо мне', 'href':'about.html'},
+            {'name':'Блог', 'href':'blog.html'},
+            {'name':'Авторизация', 'href':'index.html'}
+        ]
 block content
-    h1 Блог
+
+
+    section.section.hero
+        .modal-window
+            .modal-window__left
+            .modal-window__right
+            .modal-window__nav
+                ul.modal-window__list
+                    li.modal-window__item
+                        a.modal-window__link(href="my_works.html") Мои работы
+                    li.modal-window__item
+                        a.modal-window__link(href="about.html") Обо мне
+                    li.modal-window__item
+                        a.modal-window__link(href="blog.html") Блог
+                    li.modal-window__item
+                        a.modal-window__link(href="index.html") Авторизация
+        .hero__header
+            .hero__socials
+                ul.socials
+                    li.socials__item
+                        a.socials__link(href="https://vk.com/id431828997")
+                            svg.socials__icon.socials__icon_about
+                                use(xlink:href="assets/images/icons/sprite/sprite.svg#vk")
+                    li.socials__item
+                        a.socials__link(href="https://github.com/bermitti/gulp-build") 
+                            svg.socials__icon.socials__icon_about      
+                                use(xlink:href="assets/images/icons/sprite/sprite.svg#github")                             
+                    li.socials__item
+                        a.socials__link(href="#")
+                            svg.socials__icon.socials__icon_about
+                                use(xlink:href="assets/images/icons/sprite/sprite.svg#in")
+
+            .hero__humburger
+                    a.humburger(href="#")
+                        span.humburger__line
+                        span.humburger__line
+                        span.humburger__line
+
+        .hero__title
+            .blog-intro
+                .hero__user.user.hero__user_blog
+                    .user__pic
+                        img.user__pic-img(src="assets/images/elem/user.png", alt="")
+                    .block-title Блог
+                    .user__blog-desc Статьи которые я написал
+                .section-title.section-title_blog
+                    svg.section-title__pic
+                        use(xlink:href="assets/images/icons/sprite/sprite.svg#blog_header")
+                
+        .hero__arrow.arrow__down
+            a.hero__arrow-link(href="#blog")
+                svg.arrow__icon
+                    use(xlink:href="assets/images/icons/sprite/sprite.svg#arrow_down")
+
+        .my-works__triangls.triangles_blog
+            .my-works__triangle_works
+                svg.triangle.triangle_fill_blog
+                    use(xlink:href="assets/images/icons/sprite/sprite.svg#my_about_bg_left")
+            .my-works__triangle_works
+                svg.triangle.triangle_fill_blog
+                    use(xlink:href="assets/images/icons/sprite/sprite.svg#my_about_bg_right")
+
+    section.section.section__blog
+        a.blog__anchor(name="blog")
+        .blog
+            .blog__left
+                .blog-nav
+                    ul.blog-nav__list
+                        li.blog-nav__item.blog-nav__item_active
+                            a.blog-nav__link(href="http://") Самое важное в SASS
+                        li.blog-nav__item
+                            a.blog-nav__link(href="http://") Приёмы в вёрстке, без которых не обходится ни один сайт                           
+                        li.blog-nav__item
+                            a.blog-nav__link(href="http://") Самый необходимый набор Gulp плагинов
+                    span.blog-nav__buttom 
+
+            .blog__right
+                .blog__content
+                    .article.article-1
+                        h3.article__title Самое важное в SASS
+                        .article__date 17.12.2017
+                        .article__text Самое важное в SASS это практика, практика круглые сутки до достижения результата. Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quasi labore iste quam corrupti tempore recusandae perspiciatis eaque error ratione?
+
+                    .article.article-2
+                        h3.article__title Приёмы в вёрстке, без которых не обходится ни один сайт
+                        .article__date 17.12.2017
+                        .article__text Основной приём, это внимательность. Немного теории и практика. Ещё как говорит наш наставник, это обилие 'граблей' - от которых приходит опыт.
+
+
+    
+    footer.footer 
+        .footer__row
+            .footer__col
+                .footer__menu
+
+                    nav.menu
+                        ul.menu__list
+                            - var i = 0
+                            - for( i ; i < navItemsFooter.length; i++)
+                                li.menu__item
+                                    a(href=`${navItemsFooter[i].href}`).menu__link=navItemsFooter[i].name
+            .footer__col
+                .footer__social
+                    ul.socials.socials_rounded
+                        li.socials__item
+                            a.socials__link(href="https://vk.com/id431828997")
+                                svg.socials__icon.socials__icon_footer
+                                    use(xlink:href="assets/images/icons/sprite/sprite.svg#vk")
+                        li.socials__item
+                            a.socials__link(href="https://github.com/bermitti/gulp-build") 
+                                svg.socials__icon.socials__icon_footer      
+                                    use(xlink:href="assets/images/icons/sprite/sprite.svg#github")                             
+                        li.socials__item
+                            a.socials__link(href="#")
+                                svg.socials__icon.socials__icon_footer
+                                    use(xlink:href="assets/images/icons/sprite/sprite.svg#in")
+
+        .footer__row
+            .footer__col
+                .footer__text
+                    p Я веб-разработчик из Екатеринбурга, и этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool.
+            .footer__col
+                .footer__text.footer__text_right
+                    p © Владимир Астахов | создано в LoftSchool | 2018
+    
+

@@ -1,0 +1,10 @@
+https://tinypng.com/
+
+http://compresspng.com/ru/
+
+
+номера слоёв:
+    1 дальний
+    .. .....
+    10 ближний
+
