@@ -8,17 +8,6 @@
 
 
 module.exports = function () {
-    // const ready = function () {
-    //     const preloader = document.querySelector('.preloader');
-    //     preloader.style.display = 'none';
-    // }
-    // const circleAnimate = function () {
-    //     //анимировать рост линий кругов
-    // }
-    // const procentCount = function () {
-    //     //изменение числа процентов
-    // }
-    // document.addEventListener("onload", ready());
 
     const preloader = document.querySelector('.preloader');
     const preloaderText = document.querySelector('.loaded');
@@ -26,17 +15,29 @@ module.exports = function () {
     const imagesCount = images.length;   //длинна коллекции картинок
     let imagesLoaded = 0; 
 
-    let percent = Math.round((100 / imagesCount) * imagesLoaded);
-    preloaderText.innerHTML = percent + '%';
+     const procentCount = function () {
+        let percent;
 
-    const procentCount = function () {
+        imagesLoaded++;
         percent = Math.round((100 / imagesCount) * imagesLoaded);
         preloaderText.innerHTML = percent + '%';
-        }
+        console.log('in procentCount()' + percent + '%'); //служебная функция
+
+        if (percent == 100) {
+            preloader.style.display = 'none';
+            }
+        };
     
-    images.forEach(function(item, i, arr) {
+    //forEach под капотом использует this, для обращения к массиву в контексте которого он вызван. Через call мы подменяем массив на коллекцию и forEach обращается к ней
+    //вторым элементом в call передаем функцию которую должен вызвать forEach
+    [].forEach.call(images, function (item) {
         item.addEventListener("onload", procentCount());
     });
+
+
+    // const circleAnimate = function () {
+    //     //анимировать рост линий кругов
+    // }
 
 }
 
