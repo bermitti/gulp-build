@@ -83,10 +83,61 @@ block content
                     use(xlink:href="assets/images/icons/sprite/sprite.svg#works_header")
             .my-works__title-descr
                 .block-title Мои работы   
-        .slider
-            .slider__info Инфа
-            .slider__display Картинка
-            .slider__btns кнопки                   
+        
+        .my-works__slider
+            .slider
+                .slider__description
+                    .project
+                        ul.project__list
+                            li.project__item.active
+                                .project__title
+                                    .block-subtitle.project__title_subtitle Сайт школы онлайн образования
+                                .project__technologies HTML, CSS, JAVASCRIPT
+                                .project__link
+                                    a.project__buttom Посмотреть сайт
+                            li.project__item
+                                .project__title
+                                    .block-subtitle.project__title_subtitle Сайт школы йоги
+                                .project__technologies HTML, CSS, JAVASCRIPT
+                                .project__link
+                                    a.project__buttom Посмотреть сайт
+                            li.project__item
+                                .project__title
+                                    .block-subtitle.project__title_subtitle Сайт дизайна интерьеров
+                                .project__technologies HTML, CSS, JAVASCRIPT
+                                .project__link
+                                    a.project__buttom Посмотреть сайт
+
+                .slider__image-slide
+                    .image-slide
+                        ul.image-slide__list
+                            li.image-slide__item.active
+                                img.slider-img(src="./assets/images/elem/my-work_1.png", alt="", srcset="")
+                            li.image-slide__item
+                                img.slider-img(src="./assets/images/elem/my-work_2.png", alt="", srcset="")
+                            li.image-slide__item
+                                img.slider-img(src="./assets/images/elem/my-work_3.png", alt="", srcset="")
+                .slider__controls  
+                    .controls.controls__prev
+                        .controls__arrow
+                        .controls__bg
+                            ul.controls__bg-list
+                                li.controls__bg-item
+                                    img.slider-img(src="./assets/images/elem/my-work_1.png", alt="", srcset="")
+                                li.controls__bg-item
+                                    img.slider-img(src="./assets/images/elem/my-work_2.png", alt="", srcset="")
+                                li.controls__bg-item
+                                    img.slider-img(src="./assets/images/elem/my-work_3.png", alt="", srcset="")
+                    .controls.controls__next   
+                        .controls__arrow
+                        .controls__bg
+                            ul.controls__bg-list
+                                li.controls__bg-item
+                                    img.slider-img(src="./assets/images/elem/my-work_1.png", alt="", srcset="")
+                                //- li.controls__bg-item
+                                //-     img.slider-img(src="./assets/images/elem/my-work_2.png", alt="", srcset="")
+                                //- li.controls__bg-item
+                                //-     img.slider-img(src="./assets/images/elem/my-work_3.png", alt="", srcset="")
 
     section.section.section__mentions
         .mentions

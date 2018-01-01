@@ -7,6 +7,14 @@ module.exports = function () {
     function modalToogle(e) {
         e.preventDefault();
         textList.classList.toggle('modal-window_active')
+
+        //запретить прокрутку страницы
+        let modalWindowActive = document.querySelector('.modal-window_active');
+        if (modalWindowActive) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
+        }
     }
 
     if (button && textList) {
@@ -15,3 +23,4 @@ module.exports = function () {
          });
     }
 }
+
