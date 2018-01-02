@@ -120,24 +120,28 @@ block content
                 .slider__controls  
                     .controls.controls__prev
                         .controls__arrow
+                            svg.controls__pic
+                                use(xlink:href="assets/images/icons/sprite/sprite.svg#arrow_down")
                         .controls__bg
                             ul.controls__bg-list
                                 li.controls__bg-item
                                     img.slider-img(src="./assets/images/elem/my-work_1.png", alt="", srcset="")
                                 li.controls__bg-item
                                     img.slider-img(src="./assets/images/elem/my-work_2.png", alt="", srcset="")
-                                li.controls__bg-item
+                                li.controls__bg-item.active
                                     img.slider-img(src="./assets/images/elem/my-work_3.png", alt="", srcset="")
                     .controls.controls__next   
                         .controls__arrow
+                            svg.controls__pic
+                                use(xlink:href="assets/images/icons/sprite/sprite.svg#portf_arrow_up")
                         .controls__bg
                             ul.controls__bg-list
                                 li.controls__bg-item
                                     img.slider-img(src="./assets/images/elem/my-work_1.png", alt="", srcset="")
-                                //- li.controls__bg-item
-                                //-     img.slider-img(src="./assets/images/elem/my-work_2.png", alt="", srcset="")
-                                //- li.controls__bg-item
-                                //-     img.slider-img(src="./assets/images/elem/my-work_3.png", alt="", srcset="")
+                                li.controls__bg-item.active
+                                    img.slider-img(src="./assets/images/elem/my-work_2.png", alt="", srcset="")
+                                li.controls__bg-item
+                                    img.slider-img(src="./assets/images/elem/my-work_3.png", alt="", srcset="")
 
     section.section.section__mentions
         .mentions
@@ -182,13 +186,13 @@ block content
                         .feedback__header
                             .block-subtitle.block-subtitle_feadback Связаться со мной
                         .feedback__form
-                            form(id='feedback-form', class='form', method = 'POST', action = '')
+                            form(id='feedback-form', class='form', method = 'POST', action = '' required)
                                     .form__field
-                                        input(type='text', id='name', name ='name', placeholder='Имя', class='form__input')
+                                        input(type='text', id='name', name ='name', placeholder='Имя', class='form__input' required)
                                     .form__field
-                                        input(type='email', id='email', name = 'email', placeholder='Email', class='form__input')
+                                        input(type='email', id='email', name = 'email', placeholder='Email', class='form__input' required)
                                     .form__field
-                                        textarea(type='text', id='message', name = 'message', rows='5', class='form__input', resize: none, placeholder='Ваше сообщение')
+                                        textarea(type='text', id='message', name = 'message', rows='5', class='form__input', resize: none, placeholder='Ваше сообщение' required)
                                         
                     .feedback__buttons
                         button(form='feedback-form', type='submit', class='btn_form') Отправить

@@ -93,6 +93,18 @@ button.btn-login:focus {
 .form__line-title{
     text-align: center;
 }
+.btn__welcome-back{
+    border: none;
+}
+.check__error{
+    text-align: center;
+    color: red;
+    display: none;
+}
+.btn__welcome-back{
+    cursor: pointer;
+}
+
 .nav__item_welcome-back{
     width: 50%;
 }
@@ -119,7 +131,7 @@ button.btn-login:focus {
 .nav__link{
     text-decoration: none;
     display: inline-block;
-    padding: 10px 33px;
+    padding: 15px 33px;
     white-space: nowrap;
     color: white;
 }

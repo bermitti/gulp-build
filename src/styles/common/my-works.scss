@@ -130,12 +130,15 @@
         padding: 15px 20px;
     }
 }
+.form__field{
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
 .form__input{
     width: 300px;
     border: none;
     padding: 10px; 
     border-radius: 5px;
-    margin-bottom: 15px;
     @include phones{
         width: 260px;
     }

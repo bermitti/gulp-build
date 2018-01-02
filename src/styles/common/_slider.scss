@@ -11,7 +11,8 @@
     &__description{
         width: 50%;
         height: 100%;
-        background-color: rgb(252, 5, 5);
+        // background-color: rgb(252, 5, 5);
+        background-color: #f0efe9;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -25,7 +26,8 @@
     &__image-slide{
         width: 50%;
         height: 70%;
-        background-color: rgb(252, 126, 9);
+        // background-color: rgb(252, 126, 9);
+        background-color: #efebe0;
         @include tablets() {
             width: 100%;
             height: 60vw;
@@ -34,8 +36,8 @@
     &__controls{
         width: 50%;
         height: 30%;
-        background-color: rgb(239, 243, 20);
-
+        // background-color: rgb(239, 243, 20);
+        background-color: #f0efe9;
         display: flex;
         @include tablets() {
             width: 100%;
@@ -54,6 +56,7 @@
     position: relative;
     &__item{
         opacity: 0;
+        transition: opacity 1s;
         position: absolute;
         top: 0;
         left: 0;
@@ -67,7 +70,7 @@
 
 //блок слайдера - контроллы
 .controls{
-    border: 1px solid red;
+    // border: 1px solid red;
     width: 50%;
     height: 100%;
     position: relative;
@@ -81,9 +84,36 @@
     align-items: center;
 }
 .controls__bg-item{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    animation-name: fade;
+	animation-duration: 1s;
+}
+@keyframes fade{
+	0%{opacity: 0.4;}
+	100%{opacity: 1;}
+}
+
+.controls__arrow{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(173, 187, 186, 0.4);
+    transition: background-color .8s;
     display: flex;
     justify-content: center;
     align-items: center;
+    &:hover{
+        background-color: transparent;
+    }
+}
+.controls__pic{
+    width: 70px;
+    height: 45px;
+    fill: rgba(255,255,255,1);
 }
 
 .slider-img{
@@ -96,18 +126,18 @@
     width: 100%;
     &__list{
     position: relative;
-    min-height: 275px; //-западание в режиме планшета
-    border: 1px solid white;
+    // min-height: 275px; //-западание в режиме планшета
+    // border: 1px solid white;
     }
     &__item{
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        // position: absolute;
+        // top: 0;
+        // left: 0;
+        // right: 0;
+        // bottom: 0;
+        display: none;
         opacity: 0;
         // border: 1px solid white;// вопрос почему не видно?
-        display: flex;
         flex-direction: column;
         align-items: center;
         width: 100%;
@@ -138,8 +168,6 @@
             cursor: pointer;
             background-color: #0e9289;
         }
-
-        
     }
 }
 
@@ -147,4 +175,5 @@
 //- интерактивность
 .active {
     opacity: 1;
+    display: flex;
 }
