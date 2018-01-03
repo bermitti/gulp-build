@@ -3,9 +3,12 @@
 module.exports = function () {
     const form = document.querySelector('.flipper__back');
     if(form) {
+        console.log('000');
         document.addEventListener('submit', (e) =>{
         e.preventDefault();
+        console.log('111');
         validate();
+        console.log('222');
         });
     };
 
