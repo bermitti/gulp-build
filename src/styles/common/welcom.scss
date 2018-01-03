@@ -6,6 +6,10 @@
     background-position: center;
     display: flex;
     flex-direction: column;
+    position: relative; 
+    &__login{
+        position: absolute; 
+    }
 }
 .welcome__header {
     height: 90px;
@@ -15,20 +19,24 @@
     padding-right: 15px;
 }
 .btn-login{
+    cursor: pointer;
     border-color: white;
     border: 1px solid white;
     border-radius: 10px;
     color: white;
     background-color: transparent;
     padding: 10px;
-    transition:all 1s ease-in-out;
+    transition:all 0.5s ease-in-out;
     &:hover{
         background-color: white;
         border-color: transparent;
         color: #00bfa5;
     }
+    &_hidden{
+        transform: translateY(-1000px); 
+    }
 }
-//-Лейсан. Свойство убирающее внещние гран. при нажатии
+
 button.btn-login:focus {
     outline: none;
  }
@@ -40,15 +48,6 @@ button.btn-login:focus {
     align-items: center;
 }
 
-.flipper__front{
-    //-растягиваю отступами в блоке кнопок width: 380px;
-    height: 395px;
-    background-color: rgba(252, 252, 252, 0.85);
-    display: flex;
-    flex-direction: column;
-}
-
-//-убрать в отдельный файл
 .user{
     display: flex;
     flex-direction: column;
@@ -76,14 +75,45 @@ button.btn-login:focus {
     align-items: center;
 }
 
-.nav__link_welcome{
+.nav__link_welcome,.nav__link_welcome-back{
     background-color: #00bfa5;
     &:hover{
         background-color: #0e9289;
     }
 }
 
-//-убрать в отдельный файл
+.welcome__login-form{
+    display: flex;
+    justify-content: center;
+}
+.form__row{
+    display: flex;
+    justify-content: center;
+}
+.form__line-title{
+    text-align: center;
+}
+.btn__welcome-back{
+    border: none;
+}
+.check__error{
+    text-align: center;
+    color: red;
+    display: none;
+}
+.btn__welcome-back{
+    cursor: pointer;
+}
+
+.nav__item_welcome-back{
+    width: 50%;
+}
+.nav__link_welcome-back{
+    width: 100%;
+    text-align: center;
+}
+
+
 .nav__list{
     display: flex;
     justify-content: space-between;
@@ -101,12 +131,10 @@ button.btn-login:focus {
 .nav__link{
     text-decoration: none;
     display: inline-block;
-    padding: 10px 33px;
+    padding: 15px 33px;
     white-space: nowrap;
     color: white;
 }
-
-
 
 .welcome__footer {
     height: 90px;
@@ -115,3 +143,4 @@ button.btn-login:focus {
     align-items: center;
     color: white;
 }
+

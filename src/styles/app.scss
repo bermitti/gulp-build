@@ -1,27 +1,37 @@
 
-//подключение normalize через плагин node-normalize-scss
+//-подключение normalize через плагин node-normalize-scss
 @import "normalize"; 
-
-//подключение переменных
+//-подключение переменных
 @import "base/_variables";
-//подключение миксинов
+//-подключение миксинов
 @import "base/_mixins";
-//подключение базовых стилей
+//-подключение базовых стилей
 @import "base/_base";
-//подключение шрифтов
+//-подключение шрифтов
 @import "base/fonts";
-
-//подключение стилей для иконок соц.сетей
+//-подключение стилей для иконок соц.сетей
 @import "common/_social";
-//подключение стилей для кнопки меню
+//-подключение стилей для кнопки меню
 @import "common/_humburger";
+//-подключение стилей для футера
+@import "common/_footer";
+//-подключение стилей для анимации флиппера и кнопки авторизации
+@import "common/_flipper";
+//-подключение стилей для модального окна
+@import "common/_modal-window";
+//-подключение стилей для блока навыков
+@import "common/_skills";
+//-подключение стилей для блока parallax
+@import "common/_parallax";
+//-подключение стилей для блока preloader
+@import "common/_preloader";
+
+@import "common/_slider";
 
 
 
 @import "common/welcom";
 @import "common/about";
-@import "common/svg_skill";
-//-указывать с окончанием *.scss нельзя, выдаст ошибку
 @import "common/my-works";
 @import "common/blog";
 

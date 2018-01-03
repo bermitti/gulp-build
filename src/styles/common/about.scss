@@ -18,20 +18,11 @@
     }
 }
 
-
 .socials__icon_about{
     fill: rgba(252, 252, 252, 0.5);
     &:hover{
         fill: rgba(252, 252, 252, 1);
     }
-}
-//-можно вынести в файл svg.scss
-.humburger__icon{
-    width: 40px;
-    height: 40px;
-}
-.humburger__icon_about{
-    fill: rgba(255, 255, 255, 1);
 }
 
 .hero__title{
@@ -59,7 +50,7 @@
 .hero__arrow{
     display: flex;
     justify-content: center;
-    z-index: 1; //-наезжают абсолютом блоки
+    z-index: 1; 
 }
 .arrow__down{
     padding-bottom: 70px;
@@ -74,9 +65,11 @@
     }
 }
 
-//-section.section.about
 .about{
     display: flex;
+    @include phones{
+        flex-direction: column;
+    }
 }
 .about__triangle_left,.about__triangle_right{
     bottom: 99%;
@@ -91,10 +84,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    @include phones{
+        width: 100%;
+    }
     &-content{
         box-sizing: border-box;
         width: 100%;
-        padding: 20px 80px 20px; 
+        padding: 20px 50px 20px; 
+        @include phones{
+        padding: 20px 30px 20px;            
+        }
     }
     &-title{
         padding-top: 20px;
@@ -104,7 +103,17 @@
     fill: #efeee9;
     width: 100%;
 }
-
+.triangle_fill{
+    &_about-left{
+        fill: #efeee9;
+    }
+    &_about-right{
+        fill: #eeebdf;
+        @include phones{
+            fill: #efeee9;
+        }
+    }
+}
 .user-description{
     display: flex;
     flex-direction: column;
@@ -128,9 +137,6 @@
     }
 }
 
-
-
-
 .about__right{
     width: 50%;
     position: relative;
@@ -138,8 +144,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    @include phones{
+        width: 100%;
+    }
     &-content{
-        box-sizing: border-box; //чтобы не вылазил список скилов
+        box-sizing: border-box; 
         width: 100%;
         padding: 20px; 
     }
@@ -155,7 +164,6 @@
     padding: 0 30px;
 }
 
-//-стили для скиллов
 .skills-list{
     list-style: none;
 }
@@ -178,7 +186,6 @@
     }
 }
 
-//-cтили для секции .map
 .map{
     height: 100vh;
     background-color: greenyellow;
@@ -208,76 +215,6 @@
 
 }
 
-//-footer
-.footer{
-    background-color: rgba(55, 62, 66, 0.85);
-    &__col{
-        width: 50%;
-    }
-    &__row{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: solid 1px rgba(241, 241, 242, 0.5);
-    padding: 10px 20px;
-    }
-    &__social{
-        display: flex;
-        justify-content: flex-end;
-    }
-}
-.menu__list{
-    display: flex;
-    list-style: none; 
-.menu__item{
-    padding-right: 20px;
-}    
-}
-.menu__link{
-    text-decoration: none;
-    color: white;
-    &:hover{
-        color: rgb(24, 172, 24);
-    }
-}
-
-.socials_rounded>li{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    border: solid 1px #fff;
-    background-color: transparent;
-    padding: 5px;
-    margin-left: 5px;
-    &:hover{
-        background-color: white;
-    }
-    //-Лейсан
-    &:hover .socials__icon_footer{
-        fill: black;
-    }    
-}
-//-модификатор для социалок блока футера
-.socials__icon_footer{
-    fill: rgba(252,252,252,0.5);
-    &:hover{
-        fill: black;
-    }
-}
-
-.footer__col{
-    padding: 0 10px;
-    &:last-child{
-        display: flex;
-        justify-content: flex-end;
-    }
-}
-.footer__text{
-    color: rgba(255, 255, 255, 0.7);
-}
 
 //-оформление заголовков
 .block-subtitle::before,.block-subtitle::after,.block-title::before,.block-title::after{
@@ -287,7 +224,7 @@
     height: 3px;
     margin-left: 5px;
     margin-right: 5px;
-    background-color: rgba(9, 10, 10, 0.3);
+    background-color: rgba(4, 14, 14, 0.3);
     opacity: .9;
 }
 .block-subtitle,.block-title{

@@ -1,7 +1,6 @@
-//-расширяет(наследует) исходный шаблон от tamplate.pug
 extends ../template
 
-//-блок переменных, подставляем переменнуб title в наследуемый шаблон
+
 block variables
     - var title = 'Мои работы'
     - 
@@ -12,13 +11,25 @@ block variables
             {'name':'Авторизация', 'href':'index.html'}
         ]
 
-    //- include ../common/_variables.pug
 block content
 
     section.section.hero
         a.my-works__anchor(name="my-works-header")
+
+        .modal-window
+            .modal-window__left
+            .modal-window__right
+            .modal-window__nav
+                ul.modal-window__list
+                    li.modal-window__item
+                        a.modal-window__link(href="my_works.html") Мои работы
+                    li.modal-window__item
+                        a.modal-window__link(href="about.html") Обо мне
+                    li.modal-window__item
+                        a.modal-window__link(href="blog.html") Блог
+                    li.modal-window__item
+                        a.modal-window__link(href="index.html") Авторизация
         .hero__header
-            //позиционирование внутренних элементов(блоков)
             .hero__socials
                 //блок без позиционирования. сделать потом миксином.
                 ul.socials
@@ -34,24 +45,17 @@ block content
                         a.socials__link(href="#")
                             svg.socials__icon.socials__icon_about
                                 use(xlink:href="assets/images/icons/sprite/sprite.svg#in")
-
-            //- //миксин. позиционирование .humburger  вешаем на класс .hero__menu
-            //- a(href="").humburger.hero__menu
-            //-                 svg.humburger__icon.humburger__icon_about
-            //-                     use(xlink:href="assets/images/icons/sprite/sprite.svg#hamburger")
-            .humburger.hero__menu
-                    a.nav-toggle(href="#")
-                        span.nav-toggle__button#nav-toggle__button-1
-                        span.nav-toggle__button#nav-toggle__button-2
-                        span.nav-toggle__button#nav-toggle__button-3
-
+            .hero__humburger
+                    a.humburger(href="#")
+                        span.humburger__line
+                        span.humburger__line
+                        span.humburger__line
 
         .hero__title
             .section-title
                 svg.section-title__pic
                     use(xlink:href="assets/images/icons/sprite/sprite.svg#portfolio_header")
                 
-            //миксин. позиционирование для элемента .hero__user //блок .user без позиционирования
             .hero__user.user
                 .user__pic
                     img.user__pic-img(src="assets/images/elem/user.png", alt="")
@@ -59,7 +63,6 @@ block content
                     .user__name Владимир Астахов
                     .user__data Личный сайт разработчика
 
-        //миксин. позиционирование .hero__arrow  а отображение через класс .arrow__down
         .hero__arrow.arrow__down
             a.hero__arrow-link(href="#my-works")
                 svg.arrow__icon
@@ -67,7 +70,6 @@ block content
 
     section.section.my-works
         a.my-works__anchor(name="my-works")
-        //-треугольники позицианируем position: absolute   -top
         .my-works__triangls
             .my-works__triangle_works
                   svg.triangle.triangle_fill_my-works
@@ -81,11 +83,65 @@ block content
                     use(xlink:href="assets/images/icons/sprite/sprite.svg#works_header")
             .my-works__title-descr
                 .block-title Мои работы   
-        .slider
-            .slider__info Инфа
-            .slider__display Картинка
-            .slider__btns кнопки                   
+        
+        .my-works__slider
+            .slider
+                .slider__description
+                    .project
+                        ul.project__list
+                            li.project__item.active
+                                .project__title
+                                    .block-subtitle.project__title_subtitle Сайт школы онлайн образования
+                                .project__technologies HTML, CSS, JAVASCRIPT
+                                .project__link
+                                    a.project__buttom Посмотреть сайт
+                            li.project__item
+                                .project__title
+                                    .block-subtitle.project__title_subtitle Сайт школы йоги
+                                .project__technologies HTML, CSS, JAVASCRIPT
+                                .project__link
+                                    a.project__buttom Посмотреть сайт
+                            li.project__item
+                                .project__title
+                                    .block-subtitle.project__title_subtitle Сайт дизайна интерьеров
+                                .project__technologies HTML, CSS, JAVASCRIPT
+                                .project__link
+                                    a.project__buttom Посмотреть сайт
 
+                .slider__image-slide
+                    .image-slide
+                        ul.image-slide__list
+                            li.image-slide__item.active
+                                img.slider-img(src="./assets/images/elem/my-work_1.png", alt="", srcset="")
+                            li.image-slide__item
+                                img.slider-img(src="./assets/images/elem/my-work_2.png", alt="", srcset="")
+                            li.image-slide__item
+                                img.slider-img(src="./assets/images/elem/my-work_3.png", alt="", srcset="")
+                .slider__controls  
+                    .controls.controls__prev
+                        .controls__arrow
+                            svg.controls__pic
+                                use(xlink:href="assets/images/icons/sprite/sprite.svg#arrow_down")
+                        .controls__bg
+                            ul.controls__bg-list
+                                li.controls__bg-item
+                                    img.slider-img(src="./assets/images/elem/my-work_1.png", alt="", srcset="")
+                                li.controls__bg-item
+                                    img.slider-img(src="./assets/images/elem/my-work_2.png", alt="", srcset="")
+                                li.controls__bg-item.active
+                                    img.slider-img(src="./assets/images/elem/my-work_3.png", alt="", srcset="")
+                    .controls.controls__next   
+                        .controls__arrow
+                            svg.controls__pic
+                                use(xlink:href="assets/images/icons/sprite/sprite.svg#portf_arrow_up")
+                        .controls__bg
+                            ul.controls__bg-list
+                                li.controls__bg-item
+                                    img.slider-img(src="./assets/images/elem/my-work_1.png", alt="", srcset="")
+                                li.controls__bg-item.active
+                                    img.slider-img(src="./assets/images/elem/my-work_2.png", alt="", srcset="")
+                                li.controls__bg-item
+                                    img.slider-img(src="./assets/images/elem/my-work_3.png", alt="", srcset="")
 
     section.section.section__mentions
         .mentions
@@ -130,13 +186,13 @@ block content
                         .feedback__header
                             .block-subtitle.block-subtitle_feadback Связаться со мной
                         .feedback__form
-                            form(id='feedback-form', class='form', method = 'POST', action = '')
+                            form(id='feedback-form', class='form', method = 'POST', action = '' required)
                                     .form__field
-                                        input(type='text', id='name', name ='name', placeholder='Имя', class='form__input')
+                                        input(type='text', id='name', name ='name', placeholder='Имя', class='form__input' required)
                                     .form__field
-                                        input(type='email', id='email', name = 'email', placeholder='Email', class='form__input')
+                                        input(type='email', id='email', name = 'email', placeholder='Email', class='form__input' required)
                                     .form__field
-                                        textarea(type='text', id='message', name = 'message', rows='5', class='form__input', resize: none, placeholder='Ваше сообщение')
+                                        textarea(type='text', id='message', name = 'message', rows='5', class='form__input', resize: none, placeholder='Ваше сообщение' required)
                                         
                     .feedback__buttons
                         button(form='feedback-form', type='submit', class='btn_form') Отправить
@@ -144,11 +200,10 @@ block content
 
             .mentions__arrow-top
 
-
     footer.footer 
         .footer__row
             .footer__col
-                .foter__menu
+                .footer__menu
                     //можно и без nav , только со списком. Но он нужен для семантики
                     //nav.menu сделать миксином и использовать в полноэкранном меню, для стилизации использовать nav.menu.menu_vertical . но зависимость как исключение
                     nav.menu
