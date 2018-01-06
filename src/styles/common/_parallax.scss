@@ -25,6 +25,7 @@
 .parallaxLs__image{
     position: absolute;
     left: 50%;
+    bottom: 0; //изначально прибиваем, чтобы не прыгал до запуска параллакса
     transform: translateX(-50%);
     width: 115%;  
 

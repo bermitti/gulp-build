@@ -63,16 +63,16 @@ block content
                         .welcome__title
                             .block-subtitle.block-subtitle_welcom Авторизируйтесь
                         .welcome__login-form
-                            form(id='login', class='form', action="", method="post")
+                            form(id='login', class='form', action="", method="POST")
                                 .form__field
                                     .form__field-icon
-                                    input(type="login", class="form__input form__input_login", name="login", placeholder="Логин")
+                                    input(type="login", class="form__input form__input_login", name="login", placeholder="Логин" required)
                                 .form__field
                                     .form__field-icon
-                                    input(type="password", class="form__input form__input_password", name="password", placeholder="Пароль")
+                                    input(type="password", class="form__input form__input_password", name="password", placeholder="Пароль" required)
                                 .form__row
                                     .form__checkbox
-                                        input#robot(type="checkbox", name="robot")
+                                        input#robot.form__c(type="checkbox", name="robot")
                                         label(for="robot") Я человек
                                             .checkbox-fake
                              
@@ -80,21 +80,23 @@ block content
 
                                 .form__row
                                     .form__radio
-                                        input#robot-radio-1(type="radio" name="robot-radio")
+                                        input#robot-radio-1.form__c(type="radio" name="robot-radio")
                                         label(for="robot-radio-1") Да
                                             .radio-fake
+                                        
                                     .form__radio
                                         input#robot-radio-2(type="radio" name="robot-radio")
                                         label(for="robot-radio-2") Не уверен
                                             .radio-fake
-
+                                .check__error
+                                    span Роботам у нас не место!
 
                         .welcome__buttons-back
                             ul.nav__list.nav__list-welcome-back
                                 li.nav__item.nav__item_welcome-back
-                                    a.nav__link.nav__link_welcome-back(href="index.html") На главную
+                                    button(type="").nav__link.nav__link_welcome-back.btn__welcome-back(href="index.html") На главную
                                 li.nav__item.nav__item_welcome-back
-                                    a.nav__link.nav__link_welcome-back(href="#") Войти
+                                    button(type="submit" form='login').nav__link.nav__link_welcome-back.btn__welcome-back(href="#") Войти
 
         footer.welcome__footer
             .welcome__footer-copyright

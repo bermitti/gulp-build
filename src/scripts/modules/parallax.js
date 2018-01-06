@@ -28,7 +28,7 @@ module.exports = function () {
     };
 
     if (parallaxContainer) {
-        parallaxContainer.addEventListener('mousemove', moveLayers);  
+        document.addEventListener('mousemove', moveLayers);  
     }
 
 }
