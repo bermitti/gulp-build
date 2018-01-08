@@ -7,6 +7,9 @@ const parallax = require('./modules/parallax');
 const preloader = require('./modules/preloader'); 
 const slider = require('./modules/slider'); 
 const validate = require('./modules/validate'); 
+const scroll = require('./modules/scroll');
+
+
 
 flipper();
 humburgerButton();
@@ -15,3 +18,4 @@ parallax();
 preloader();
 slider();
 validate();
+scroll();
