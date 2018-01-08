@@ -94,8 +94,19 @@ section, div{
         }
     }
 }
-.blog-nav{
-    position: relative;
+// .blog-nav{
+//     width: 30%;
+// }
+//-подвижный блок анимации при скролле
+.fixed {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 30%;
+    padding-left: 40px;
+    @include tablets{
+        position: relative; //- костыль для js
+    }
 }
 .blog-nav__buttom{
     @include tablets{

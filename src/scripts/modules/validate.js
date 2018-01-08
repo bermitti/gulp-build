@@ -1,7 +1,7 @@
 'use strict'
 
 module.exports = function () {
-    const form = document.querySelector('.flipper__back');
+    const form = document.querySelector('form');
     if(form) {
         console.log('000');
         document.addEventListener('submit', (e) =>{

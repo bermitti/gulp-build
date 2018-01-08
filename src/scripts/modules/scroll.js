@@ -1,26 +1,25 @@
 
+module.exports = function () {
 
-    var avatarElem = document.getElementById('avatar');
+    if (document.querySelector('.blog-nav')) {
 
-    var avatarSourceBottom = avatarElem.getBoundingClientRect().bottom + window.pageYOffset;
+      let blogNav = document.querySelector('.blog-nav');
+      let blogNavTop = blogNav.getBoundingClientRect().top + window.pageYOffset;
 
-    window.onscroll = function() {
-      if (avatarElem.classList.contains('fixed') && window.pageYOffset < avatarSourceBottom) {
-        avatarElem.classList.remove('fixed');
-      } else if (window.pageYOffset > avatarSourceBottom) {
-        avatarElem.classList.add('fixed');
-      }
-    };
+      window.onscroll = function() {
 
-    .fixed {
-        position: fixed;
-        top: 0;
-        left: 0;
-      }
-      http://plnkr.co/edit/E6NWXzlKk0TEGK5VFKfy?p=preview
-    //Метод Element.getBoundingClientRect() возвращает размер элемента и его позицию относительно окна.
+        if (blogNav.classList.contains('fixed') && window.pageYOffset < blogNavTop) {
+          blogNav.classList.remove('fixed');
+        } else if (window.pageYOffset > blogNavTop) {
+          blogNav.classList.add('fixed');
+        }
+      };
 
-    https://learn.javascript.ru/coordinates
-    http://shpargalkablog.ru/2013/09/scroll-block.html
 
+      // elem.scrollIntoView(top) – прокрутить, чтобы элемент elem стал виден.
+      // Метод window.scrollTo(pageX,pageY) прокручивает страницу к указанным координатам относительно документа
+      // Событие mouseover происходит, когда мышь появляется над элементом
+    }
+  
+}
 
